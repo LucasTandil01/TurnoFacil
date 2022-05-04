@@ -1,1 +1,27 @@
-<mxfile host="app.diagrams.net" modified="2022-05-04T16:53:03.920Z" agent="5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/100.0.4896.127 Safari/537.36" version="18.0.0" etag="WB-vsg22_1q0xAHkYZly" type="github"><diagram id="SYGA4eWzjhgXAbYpL_Ch">UzV2zq1wL0osyPDNT0nNUTV2VTV2LsrPL4GwciucU3NyVI0MMlNUjV1UjYwMgFjVyA2HrCFY1qAgsSg1rwSLBiADYTaQg2Y1AA==</diagram></mxfile>
+<mxfile host="app.diagrams.net" modified="2022-05-04T17:51:30.192Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/101.0.4951.54 Safari/537.36" etag="1yNthoTTiPxxlSQcvmaF" version="18.0.0" type="github">
+  <diagram id="SYGA4eWzjhgXAbYpL_Ch" name="Page-1">
+    <mxGraphModel dx="723" dy="405" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <object label="" id="0">
+          <mxCell />
+        </object>
+        <mxCell id="1" parent="0" />
+        <mxCell id="57hV9MgefJVSSr9JNAaL-1" value="Paciente" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;fontFamily=Helvetica;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="260" y="220" width="30" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="57hV9MgefJVSSr9JNAaL-15" value="Seleccionar medico" style="ellipse;whiteSpace=wrap;html=1;fontFamily=Helvetica;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="420" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="57hV9MgefJVSSr9JNAaL-16" value="Seleccionar franja horaria" style="ellipse;whiteSpace=wrap;html=1;fontFamily=Helvetica;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="420" y="150" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="57hV9MgefJVSSr9JNAaL-30" value="Mostrar turnos disponibles" style="ellipse;whiteSpace=wrap;html=1;fontFamily=Helvetica;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="420" y="300" width="120" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="57hV9MgefJVSSr9JNAaL-31" value="" style="ellipse;whiteSpace=wrap;html=1;fontFamily=Helvetica;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="600" y="150" width="120" height="80" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
