@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2022-05-08T14:49:47.461Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/99.0.4844.84 Safari/537.36 OPR/85.0.4341.72" etag="ncfm2Z4nP3mSlXcljWEe" version="18.0.2" type="github">
+<mxfile host="app.diagrams.net" modified="2022-05-08T14:50:32.615Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/99.0.4844.84 Safari/537.36 OPR/85.0.4341.72" etag="rtkZDqrv_Nqk-rk7a92E" version="18.0.2" type="github">
   <diagram id="SYGA4eWzjhgXAbYpL_Ch" name="Page-1">
     <mxGraphModel dx="997" dy="580" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
@@ -54,7 +54,7 @@
             <mxPoint x="470" y="231.37931034482756" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="WEEtcuQphamk7MpxiqM7-7" value="Alertar Obra social medico" style="ellipse;whiteSpace=wrap;html=1;fontFamily=Helvetica;fontSize=10;" vertex="1" parent="1">
+        <mxCell id="WEEtcuQphamk7MpxiqM7-7" value="Imprimir turno" style="ellipse;whiteSpace=wrap;html=1;fontFamily=Helvetica;fontSize=10;" vertex="1" parent="1">
           <mxGeometry x="420" y="370" width="120" height="80" as="geometry" />
         </mxCell>
         <mxCell id="WEEtcuQphamk7MpxiqM7-8" value="" style="endArrow=none;html=1;rounded=0;entryX=0.017;entryY=0.403;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" target="WEEtcuQphamk7MpxiqM7-7">
