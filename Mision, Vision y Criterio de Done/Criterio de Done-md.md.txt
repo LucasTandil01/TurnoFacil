@@ -1,0 +1,10 @@
+# Criterio de Done
+>- Se deben cumplir todos los criterios de aceptación.
+>- Se debe testear la funcionalidad de acuerdo al template adjunto
+>>- Datos que tiene el sistema
+>>- Datos de entrada
+>>- Salida esperada
+>>- Salida obtenida [descrita, o por screenshot]
+>>- Comentarios [opcionales]
+>- Los commit sean claros, consistentes con lo que se hizo (descriptivos).
+>- El código debe ser revisado por otro integrante del grupo de desarrolladores.
