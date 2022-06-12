@@ -1,0 +1,57 @@
+package tp2;
+
+import java.util.Scanner;
+
+public class Episodio {
+	
+	private String titulo;
+	private String descripcion;
+	private boolean visto;
+	private double calificacion;
+	
+	
+	public void calificar() {
+		Scanner leer = new Scanner(System.in);
+		System.out.print("Ingrese el valor de la calificación (1 a 5): ");
+		double cal = leer.nextDouble();
+		if (cal>=1 || cal<=5) {
+			setCalificacion(cal);
+		}else {
+			System.out.println("El valor ingresado no es correcto, debe ser entre 1 y 5.");
+			calificar();
+		}		
+	}
+	
+	Episodio(String titulo, String descripcion){
+		this.titulo = titulo;
+		this.descripcion = descripcion;
+		this.visto = false;
+		this.calificacion = -1;
+	}
+	
+	public String getTitulo() {
+		return titulo;
+	}
+	public void setTitulo(String titulo) {
+		this.titulo = titulo;
+	}
+	public String getDescripcion() {
+		return descripcion;
+	}
+	public void setDescripcion(String descripcion) {
+		this.descripcion = descripcion;
+	}
+	public boolean isVisto() {
+		return visto;
+	}
+	public void setVisto(boolean visto) {
+		this.visto = visto;
+	}
+	public double getCalificacion() {
+		return calificacion;
+	}
+	public void setCalificacion(double calificacion) {
+		this.calificacion = calificacion;
+	}	
+	
+}

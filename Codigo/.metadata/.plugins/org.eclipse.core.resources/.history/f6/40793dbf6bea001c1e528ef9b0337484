@@ -1,0 +1,7 @@
+package Clases;
+
+import java.util.ArrayList;
+
+public class Medico extends Empleado{
+	private ArrayList<ArrayList<Turno>> turnos;
+}

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+    <fullyQualifiedTypeName name="java.time.format.DateTimeFormatter"/>
+    <fullyQualifiedTypeName name="tp2.Contacto"/>
+    <fullyQualifiedTypeName name="java.time.LocalDateTime"/>
+    <fullyQualifiedTypeName name="java.util.LinkedList"/>
+    <fullyQualifiedTypeName name="tp3.CajaDeAhorro"/>
+    <fullyQualifiedTypeName name="tp3.AlarmaSensorial"/>
+    <fullyQualifiedTypeName name="java.lang.Process"/>
+    <fullyQualifiedTypeName name="tp3.ProductoRefrigerado"/>
+    <fullyQualifiedTypeName name="tp4.Evaluador"/>
+    <fullyQualifiedTypeName name="tp4.Trabajo"/>
+    <fullyQualifiedTypeName name="java.sql.Date"/>
+    <fullyQualifiedTypeName name="java.util.Calendar"/>
+    <fullyQualifiedTypeName name="java.time.LocalDate"/>
+    <fullyQualifiedTypeName name="tp6.ej4.ComparadorAlfabetico"/>
+    <fullyQualifiedTypeName name="java.util.Comparator"/>
+    <fullyQualifiedTypeName name="java.util.Collection"/>
+    <fullyQualifiedTypeName name="tp6.ej4.CondicionDeudor"/>
+    <fullyQualifiedTypeName name="tp6.ej4.CondicionMenor"/>
+    <fullyQualifiedTypeName name="tp6.ej4.CondicionPagoX"/>
+    <fullyQualifiedTypeName name="tp6.ej4.CondicionCanchaAlquilada"/>
+    <fullyQualifiedTypeName name="tp6.ej4.ComparadorCantAlquileres"/>
+    <fullyQualifiedTypeName name="tp6.ej4.ComparadorEdad"/>
+    <fullyQualifiedTypeName name="tp6.ej4.Condicion"/>
+    <fullyQualifiedTypeName name="tp6.ej4.CondicionNOT"/>
+    <fullyQualifiedTypeName name="Parcial5112021.Elemento"/>
+    <fullyQualifiedTypeName name="java.util.Collections"/>
+    <fullyQualifiedTypeName name="java.util.Scanner"/>
+    <fullyQualifiedTypeName name="java.util.Arrays"/>
+    <fullyQualifiedTypeName name="java.text.NumberFormat"/>
+    <fullyQualifiedTypeName name="javax.swing.text.NumberFormatter"/>
+    <fullyQualifiedTypeName name="java.text.ParseException"/>
+    <fullyQualifiedTypeName name="Swing.registerFrame"/>
+    <fullyQualifiedTypeName name="Swing.PortalUsuario"/>
+    <fullyQualifiedTypeName name="javax.swing.JButton"/>
+    <fullyQualifiedTypeName name="javax.swing.JFormattedTextField.AbstractFormatter"/>
+    <fullyQualifiedTypeName name="java.util.ArrayList"/>
+    <fullyQualifiedTypeName name="Clases.Empleado"/>
+</qualifiedTypeNameHistroy>

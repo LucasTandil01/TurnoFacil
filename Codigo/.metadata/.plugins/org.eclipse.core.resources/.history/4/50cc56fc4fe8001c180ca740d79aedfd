@@ -1,0 +1,16 @@
+package Parcial5112021;
+
+import java.util.ArrayList;
+
+public abstract class Elemento implements Comparable<Elemento>{
+	public abstract String getMarca();
+	public abstract double getPrecio();
+	public abstract int getAnio();
+	public abstract ArrayList<Elemento> buscar(Filtro f);
+	public abstract int cantVehiculos();
+	public abstract Elemento getCopia(Filtro f);
+	
+	public int compareTo(Elemento e) {
+		return (int)(this.getPrecio() - e.getPrecio());
+	}
+}

@@ -1,0 +1,10 @@
+package Clases;
+
+public class Empleado extends Usuario{
+
+	Empleado(long dni, String nombre, String apellido) {
+		super(dni, nombre, apellido);
+		// TODO Auto-generated constructor stub
+	}
+	
+}

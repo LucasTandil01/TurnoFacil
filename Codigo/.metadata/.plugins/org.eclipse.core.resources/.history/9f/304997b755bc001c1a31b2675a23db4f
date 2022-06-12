@@ -1,0 +1,30 @@
+package tp2;
+
+import java.util.ArrayList;
+
+public class AgendaPersonal {
+	
+	private ArrayList<Reunion> reuniones;
+	
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+	}
+	
+	public void addReunion(Reunion r) {
+		reuniones.add(r);
+	}
+	
+	public void removeReunion(int i) {
+		reuniones.remove(i);
+	}
+
+	public ArrayList<Reunion> getReuniones() {
+		return reuniones;
+	}
+
+	public void setReuniones(ArrayList<Reunion> reuniones) {
+		this.reuniones = reuniones;
+	}
+
+}

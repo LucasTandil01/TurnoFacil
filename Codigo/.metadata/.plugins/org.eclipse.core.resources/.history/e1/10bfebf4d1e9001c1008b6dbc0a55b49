@@ -1,0 +1,6 @@
+
+public class Usuario {
+	private int dni;
+	private String nombre;
+	
+}

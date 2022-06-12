@@ -1,0 +1,13 @@
+package tp2;
+
+public class Serie {
+	
+	private Temporada[];
+	
+	
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

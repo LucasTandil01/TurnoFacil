@@ -1,0 +1,15 @@
+package Parcial5112021;
+
+import java.util.ArrayList;
+
+public class Concesionaria {
+	private ArrayList<Elemento> elementos;
+	
+	public ArrayList<Elemento> buscar(Filtro f){
+		ArrayList<Elemento> salida = new ArrayList<Elemento>();
+		for(Elemento e: elementos) {
+			salida.addAll(e.buscar(f));
+		}
+		return salida;
+	}
+}

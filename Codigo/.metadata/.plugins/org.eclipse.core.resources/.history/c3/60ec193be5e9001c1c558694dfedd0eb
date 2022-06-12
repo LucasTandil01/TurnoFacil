@@ -1,0 +1,14 @@
+package Swing;
+
+import javax.swing.JPanel;
+
+public class popUp extends JPanel {
+
+	/**
+	 * Create the panel.
+	 */
+	public popUp() {
+
+	}
+
+}

@@ -1,0 +1,65 @@
+
+import java.util.ArrayList;
+
+public class Cama extends ElementoSIS{
+
+    private ArrayList<String> equipamiento;
+    private Paciente paciente;
+
+    /**
+     * La cama puede ser ocupada por un paciente, si el paciente
+     * cumple con este criterio
+     */
+    private Criterio criterioAceptacion;
+
+    public Cama(Criterio criterio){
+        equipamiento = new ArrayList<>();
+        paciente = null;
+        this.criterioAceptacion = criterio;
+    }
+
+    public boolean estaLibre(){
+        return this.paciente == null;
+        //if (paciente == null) return true
+        //else return false;
+    }
+
+    @Override
+    public int totalCamas() {
+        return 1;
+    }
+
+    @Override
+    public ArrayList<Cama> getCamas(Paciente paciente) {
+        ArrayList<Cama> camasQueCumplen = new ArrayList<>();
+        if (this.estaLibre() &&
+                this.criterioAceptacion.cumple(paciente)){
+            camasQueCumplen.add(this);
+        }
+        return camasQueCumplen;
+    }
+
+    public void setPaciente(Paciente p){
+        if (this.estaLibre() && criterioAceptacion.cumple(p))
+            this.paciente = p;
+    }
+
+    public void addEquipamiento(String e){
+        this.equipamiento.add(e);
+    }
+
+    @Override
+    public ElementoSIS getCopia(Criterio condicion) {
+        if(!this.estaLibre()) {
+            if (condicion.cumple(this.paciente)) {
+                //return this;//NOO! PORQUE NO ES COPIAR ES DEVOLVERSE A SI MISMO
+                Cama copia = new Cama(this.criterioAceptacion);//CREA LA CAMA CON EL CRITERIO
+                copia.setPaciente(this.paciente.getCopia());//PIDE UNA COPIA CON EL PACIENTE
+                for (String eq:this.equipamiento)//AGREGA UNO A UNO TODOS LOS EQUIPAMIENTOS
+                    copia.addEquipamiento(eq);
+                return copia;
+            }
+        }
+        return null; //TENER CUIDADO DE CONTROLARLO EN EL COMPUESTO!!!
+    }
+}

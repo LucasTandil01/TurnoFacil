@@ -1,0 +1,57 @@
+package tp2;
+
+import java.util.ArrayList;
+
+public class Reunion {
+	private int horario;
+	private String lugar;
+	private ArrayList<Participante> participantes;
+	private String tema;
+	private int duracion;
+	
+	
+	public boolean conflictoHorarios(Reunion r) {
+		return ((horario+duracion)<r.horario && (r.horario+r.duracion)<horario);
+	}
+	
+	public void addParticipante(Participante p) {
+		participantes.add(p);
+	}
+	
+	public void removeParticipante(int i) {
+		participantes.remove(i);
+	}
+	
+	public int getHorario() {
+		return horario;
+	}
+
+	public void setHorario(int horario) {
+		this.horario = horario;
+	}
+
+	public String getLugar() {
+		return lugar;
+	}
+	public void setLugar(String lugar) {
+		this.lugar = lugar;
+	}
+	public ArrayList<Participante> getParticipantes() {
+		return participantes;
+	}
+	public void setParticipantes(ArrayList<Participante> participantes) {
+		this.participantes = participantes;
+	}
+	public String getTema() {
+		return tema;
+	}
+	public void setTema(String tema) {
+		this.tema = tema;
+	}
+	public int getDuracion() {
+		return duracion;
+	}
+	public void setDuracion(int duracion) {
+		this.duracion = duracion;
+	}
+}

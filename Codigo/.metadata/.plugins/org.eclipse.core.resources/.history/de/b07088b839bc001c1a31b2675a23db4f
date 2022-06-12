@@ -1,0 +1,10 @@
+package tp2;
+
+public class Episodio {
+	
+	private String titulo;
+	private String descripcion;
+	private boolean visto;
+	private double calificacion;
+	
+}

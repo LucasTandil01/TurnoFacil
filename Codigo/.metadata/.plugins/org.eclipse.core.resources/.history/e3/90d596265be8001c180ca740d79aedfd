@@ -1,0 +1,54 @@
+package Parcial5112021;
+
+import java.util.ArrayList;
+
+public class Lote extends Elemento{
+	private String nombre;
+	private ArrayList<Elemento> elementos;
+
+	Lote(String nombre){
+		this.nombre = nombre;
+		this.elementos = new ArrayList<Elemento>();
+	}
+	
+	public String getNombre() {return nombre;}
+	
+	public void addElemento(Elemento e) {elementos.add(e);}
+	
+	@Override
+	public String getMarca() {return elementos.get((int)Math.random()*elementos.size()).getMarca();}
+
+	@Override
+	public double getPrecio() {
+		double precio = 0;
+		for(Elemento e: elementos) {precio += e.getPrecio();}
+		return precio;
+	}
+
+	@Override
+	public int getAnio() {
+		int anio = 0;
+		for(Elemento e: elementos) {anio += e.getAnio();}
+		return (int)anio/elementos.size();
+	}
+
+	@Override
+	public int cantVehiculos() {
+		int cant = 0;
+		for(Elemento e: elementos) {cant += e.cantVehiculos();}
+		return cant;
+	}
+
+	@Override
+	public Elemento getCopia(Filtro f) {
+		Lote l = new Lote("Copia");
+		for(Elemento e: elementos) {
+			Elemento copia = e.getCopia(f);
+			if(copia != null) l.addElemento(copia);
+		}
+		if (l.cantVehiculos() > 0) return l;		
+		return null;
+	}
+	
+	
+}

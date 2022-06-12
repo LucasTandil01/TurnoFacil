@@ -1,0 +1,46 @@
+package Parcial5112021;
+
+import java.util.ArrayList;
+
+public class Vehiculo extends Elemento{
+	private String marca;
+	private double precio;
+	private int anio;
+	
+	Vehiculo(String marca, double precio, int anio){
+		this.anio = anio;
+		this.marca = marca;
+		this.precio = precio;
+	}
+
+	@Override
+	public String getMarca() {return marca;}
+
+	@Override
+	public double getPrecio() {return precio;}
+
+	@Override
+	public int getAnio() {return anio;}
+
+	@Override
+	public ArrayList<Elemento> buscar(Filtro f) {
+		ArrayList<Elemento> lista = new ArrayList<Elemento>();
+		if(f.cumple(this)) {
+			lista.add(this);
+		}
+		return lista;
+	}
+
+	@Override
+	public int cantVehiculos() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public Elemento getCopia(Filtro f) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	
+}

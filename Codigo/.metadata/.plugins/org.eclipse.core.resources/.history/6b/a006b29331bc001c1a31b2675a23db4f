@@ -1,0 +1,55 @@
+package tp2;
+
+public class Electrodomestico {
+	private String nombre;
+	private double precio;
+	private String color;
+	private double consumoEnergetico;
+	private double peso;
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		System.out.println("Hi");
+	}
+
+	public String getNombre() {
+		return nombre;
+	}
+
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
+
+	public double getPrecio() {
+		return precio;
+	}
+
+	public void setPrecio(double precio) {
+		this.precio = precio;
+	}
+
+	public String getColor() {
+		return color;
+	}
+
+	public void setColor(String color) {
+		this.color = color;
+	}
+
+	public double getConsumoEnergetico() {
+		return consumoEnergetico;
+	}
+
+	public void setConsumoEnergetico(double consumoEnergetico) {
+		this.consumoEnergetico = consumoEnergetico;
+	}
+
+	public double getPeso() {
+		return peso;
+	}
+
+	public void setPeso(double peso) {
+		this.peso = peso;
+	}
+
+}

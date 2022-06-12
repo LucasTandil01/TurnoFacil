@@ -1,0 +1,25 @@
+package tp2;
+
+public class Temporada {
+	
+	private Episodio[] episodios;
+
+	
+	public int episodiosVistos() {
+		int vistos = 0;
+		for(Episodio ep:episodios) {
+			if(ep.isVisto()) {
+				vistos++;
+			}
+		}
+		return vistos;
+	}
+	
+	public Episodio[] getEpisodios() {
+		return episodios;
+	}
+
+	public void setEpisodios(Episodio[] episodios) {
+		this.episodios = episodios;
+	}
+}

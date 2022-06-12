@@ -1,0 +1,37 @@
+package tp2;
+
+import java.util.ArrayList;
+
+public class Reunion {
+	private String lugar;
+	private ArrayList<Participante> participantes;
+	private String tema;
+	private int duracion;
+	
+	
+	
+	public String getLugar() {
+		return lugar;
+	}
+	public void setLugar(String lugar) {
+		this.lugar = lugar;
+	}
+	public ArrayList<Participante> getParticipantes() {
+		return participantes;
+	}
+	public void setParticipantes(ArrayList<Participante> participantes) {
+		this.participantes = participantes;
+	}
+	public String getTema() {
+		return tema;
+	}
+	public void setTema(String tema) {
+		this.tema = tema;
+	}
+	public int getDuracion() {
+		return duracion;
+	}
+	public void setDuracion(int duracion) {
+		this.duracion = duracion;
+	}
+}

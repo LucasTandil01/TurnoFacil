@@ -1,0 +1,158 @@
+package Swing;
+
+import java.awt.BorderLayout;
+import java.awt.EventQueue;
+
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
+
+import Clases.*;
+
+import javax.swing.GroupLayout;
+import javax.swing.GroupLayout.Alignment;
+import javax.swing.JTextField;
+import java.awt.SystemColor;
+import java.awt.ComponentOrientation;
+import java.awt.Font;
+import javax.swing.SwingConstants;
+import java.awt.Dimension;
+import javax.swing.JButton;
+import javax.swing.JFormattedTextField;
+import javax.swing.JFormattedTextField.AbstractFormatter;
+import javax.swing.LayoutStyle.ComponentPlacement;
+import javax.swing.JPasswordField;
+import java.awt.event.ActionListener;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
+import java.awt.event.ActionEvent;
+
+public class LoggerEmpleado extends JFrame {
+
+	private JPanel contentPane;
+	private JTextField txtBienvenidoEmpleado;
+	private JTextField txtNombreDeUsuario;
+	private JTextField txtContrasea;
+	private JPasswordField ingresoPass;
+
+	/**
+	 * Launch the application.
+	 */
+	
+
+	/**
+	 * Create the frame.
+	 */
+	public LoggerEmpleado(TurnoFacil sistema) {
+		setResizable(false);
+		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+		setBounds(100, 100, 369, 184);
+		contentPane = new JPanel();
+		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		setContentPane(contentPane);
+		
+		txtBienvenidoEmpleado = new JTextField("Bienvenido Empleado");
+		txtBienvenidoEmpleado.setRequestFocusEnabled(false);
+		txtBienvenidoEmpleado.setPreferredSize(new Dimension(2, 14));
+		txtBienvenidoEmpleado.setOpaque(false);
+		txtBienvenidoEmpleado.setHorizontalAlignment(SwingConstants.CENTER);
+		txtBienvenidoEmpleado.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		txtBienvenidoEmpleado.setFocusable(false);
+		txtBienvenidoEmpleado.setFocusTraversalKeysEnabled(false);
+		txtBienvenidoEmpleado.setEditable(false);
+		txtBienvenidoEmpleado.setComponentOrientation(ComponentOrientation.LEFT_TO_RIGHT);
+		txtBienvenidoEmpleado.setCaretColor(SystemColor.menu);
+		txtBienvenidoEmpleado.setBorder(null);
+		txtBienvenidoEmpleado.setAutoscrolls(false);
+		
+		
+		txtNombreDeUsuario = new JTextField("Nombre de Usuario:");
+		txtNombreDeUsuario.setPreferredSize(new Dimension(2, 14));
+		txtNombreDeUsuario.setOpaque(false);
+		txtNombreDeUsuario.setFocusable(false);
+		txtNombreDeUsuario.setFocusTraversalKeysEnabled(false);
+		txtNombreDeUsuario.setEditable(false);
+		txtNombreDeUsuario.setCaretColor(SystemColor.menu);
+		txtNombreDeUsuario.setBorder(null);
+		txtNombreDeUsuario.setAutoscrolls(false);
+		
+		JFormattedTextField ingresoUser = new JFormattedTextField((AbstractFormatter) null);
+		ingresoUser.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyPressed(KeyEvent e) {
+				if (e.getKeyCode()==KeyEvent.VK_ENTER){					
+					String user = ingresoUser.getText();
+					String pass = String.valueOf(ingresoPass.getPassword());				
+					irPortalEmpleado(sistema, user, pass);							   					
+				}				
+			}
+		});
+		txtContrasea = new JTextField("Contraseña:");
+		txtContrasea.setPreferredSize(new Dimension(2, 14));
+		txtContrasea.setOpaque(false);
+		txtContrasea.setFocusable(false);
+		txtContrasea.setFocusTraversalKeysEnabled(false);
+		txtContrasea.setEditable(false);
+		txtContrasea.setCaretColor(SystemColor.menu);
+		txtContrasea.setBorder(null);
+		txtContrasea.setAutoscrolls(false);
+		
+		ingresoPass = new JPasswordField();
+		
+		JButton btnNewButton = new JButton("Entrar");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				String user = ingresoUser.getText();
+				String pass = String.valueOf(ingresoPass.getPassword());				
+				irPortalEmpleado(sistema, user, pass);
+			}
+		});
+		
+		GroupLayout gl_contentPane = new GroupLayout(contentPane);
+		gl_contentPane.setHorizontalGroup(
+			gl_contentPane.createParallelGroup(Alignment.LEADING)
+				.addGroup(gl_contentPane.createSequentialGroup()
+					.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
+						.addGroup(gl_contentPane.createSequentialGroup()
+							.addGap(22)
+							.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
+								.addComponent(txtNombreDeUsuario, GroupLayout.PREFERRED_SIZE, 123, GroupLayout.PREFERRED_SIZE)
+								.addComponent(txtContrasea, GroupLayout.PREFERRED_SIZE, 119, GroupLayout.PREFERRED_SIZE))
+							.addPreferredGap(ComponentPlacement.UNRELATED)
+							.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
+								.addComponent(ingresoPass)
+								.addComponent(ingresoUser, GroupLayout.PREFERRED_SIZE, 168, GroupLayout.PREFERRED_SIZE)))
+						.addGroup(gl_contentPane.createSequentialGroup()
+							.addGap(103)
+							.addComponent(txtBienvenidoEmpleado, GroupLayout.PREFERRED_SIZE, 136, GroupLayout.PREFERRED_SIZE)))
+					.addContainerGap(24, GroupLayout.PREFERRED_SIZE))
+				.addGroup(gl_contentPane.createSequentialGroup()
+					.addGap(121)
+					.addComponent(btnNewButton, GroupLayout.PREFERRED_SIZE, 86, GroupLayout.PREFERRED_SIZE)
+					.addContainerGap(136, Short.MAX_VALUE))
+		);
+		gl_contentPane.setVerticalGroup(
+			gl_contentPane.createParallelGroup(Alignment.LEADING)
+				.addGroup(gl_contentPane.createSequentialGroup()
+					.addContainerGap()
+					.addComponent(txtBienvenidoEmpleado, GroupLayout.PREFERRED_SIZE, 21, GroupLayout.PREFERRED_SIZE)
+					.addPreferredGap(ComponentPlacement.UNRELATED)
+					.addGroup(gl_contentPane.createParallelGroup(Alignment.BASELINE)
+						.addComponent(txtNombreDeUsuario, GroupLayout.PREFERRED_SIZE, 14, GroupLayout.PREFERRED_SIZE)
+						.addComponent(ingresoUser, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+					.addPreferredGap(ComponentPlacement.RELATED)
+					.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
+						.addComponent(ingresoPass, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+						.addComponent(txtContrasea, GroupLayout.PREFERRED_SIZE, 14, GroupLayout.PREFERRED_SIZE))
+					.addPreferredGap(ComponentPlacement.RELATED, 12, Short.MAX_VALUE)
+					.addComponent(btnNewButton)
+					.addContainerGap())
+		);
+		contentPane.setLayout(gl_contentPane);
+	}
+	
+	public void irPortalEmpleado(TurnoFacil sistema, String user, String pass) {
+		sistema.login(user, pass);
+		dispose();
+	}
+}

@@ -1,0 +1,41 @@
+package tp2;
+
+public class Episodio {
+	
+	private String titulo;
+	private String descripcion;
+	private boolean visto;
+	private double calificacion;
+	
+	
+	public void calificar() {
+		System.out.print("Ingrese el valor de la calificación (1 a 5): ");
+		System.in.read();
+	}
+	
+	public String getTitulo() {
+		return titulo;
+	}
+	public void setTitulo(String titulo) {
+		this.titulo = titulo;
+	}
+	public String getDescripcion() {
+		return descripcion;
+	}
+	public void setDescripcion(String descripcion) {
+		this.descripcion = descripcion;
+	}
+	public boolean isVisto() {
+		return visto;
+	}
+	public void setVisto(boolean visto) {
+		this.visto = visto;
+	}
+	public double getCalificacion() {
+		return calificacion;
+	}
+	public void setCalificacion(double calificacion) {
+		this.calificacion = calificacion;
+	}	
+	
+}

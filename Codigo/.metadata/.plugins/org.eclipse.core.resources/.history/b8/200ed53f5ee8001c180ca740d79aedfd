@@ -1,0 +1,24 @@
+package Parcial5112021;
+
+public class LoteEspecial extends Lote{
+	private Filtro f;
+	
+	LoteEspecial(String nombre,Filtro f) {
+		super(nombre);
+		this.f = f;
+	}
+	
+	@Override
+	public void addElemento(Elemento e) {if(f.cumple(e)) super.addElemento(e);}
+	
+	@Override
+	public Elemento getCopia(Filtro f) {
+		LoteEspecial le = new LoteEspecial(super.getNombre(),new FiltroAND(this.f,f));
+		for(Elemento e: elementos) {
+			Elemento copia = e.getCopia(new FiltroTRUE());
+			if(copia != null) le.addElemento(copia));
+		}
+		if(le.cantVehiculos() > 0) return le;
+		return null;
+	}
+}

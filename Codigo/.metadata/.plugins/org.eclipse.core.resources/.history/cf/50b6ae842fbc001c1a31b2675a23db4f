@@ -1,0 +1,17 @@
+package tp2;
+
+public class Electrodomestico {
+	private String nombre;
+	private double precio;
+	private String color;
+	private double consumoEnergetico;
+	private double peso;
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		System.out.println("Hi");
+	}
+	
+	
+
+}

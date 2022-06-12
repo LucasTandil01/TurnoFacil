@@ -1,0 +1,8 @@
+content_assist_lru_history=<?xml version\="1.0" encoding\="UTF-8" standalone\="no"?><history maxLHS\="100" maxRHS\="10"><lhs name\="tp3.CajaDeAhorro"><rhs name\="tp3.CajaDeAhorro"/></lhs><lhs name\="java.util.List"><rhs name\="java.util.ArrayList"/></lhs><lhs name\="java.util.Collection"><rhs name\="java.util.ArrayList"/></lhs><lhs name\="java.lang.Iterable"><rhs name\="java.util.ArrayList"/></lhs><lhs name\="java.util.RandomAccess"><rhs name\="java.util.ArrayList"/></lhs><lhs name\="java.lang.Cloneable"><rhs name\="java.util.ArrayList"/></lhs><lhs name\="java.util.AbstractList"><rhs name\="java.util.ArrayList"/></lhs><lhs name\="java.util.AbstractCollection"><rhs name\="java.util.ArrayList"/></lhs><lhs name\="java.util.ArrayList"><rhs name\="java.util.ArrayList"/></lhs><lhs name\="tp6.ej4.Condicion"><rhs name\="tp6.ej4.CondicionDeudor"/><rhs name\="tp6.ej4.CondicionMenor"/><rhs name\="tp6.ej4.CondicionPagoX"/><rhs name\="tp6.ej4.CondicionCanchaAlquilada"/><rhs name\="tp6.ej4.CondicionNOT"/></lhs><lhs name\="java.util.Comparator"><rhs name\="tp6.ej4.ComparadorCantAlquileres"/><rhs name\="tp6.ej4.ComparadorEdad"/></lhs></history>
+content_assist_number_of_computers=13
+eclipse.preferences.version=1
+org.eclipse.jdt.ui.formatterprofiles.version=22
+spelling_locale_initialized=true
+typefilter_migrated_2=true
+useAnnotationsPrefPage=true
+useQuickDiffPrefPage=true

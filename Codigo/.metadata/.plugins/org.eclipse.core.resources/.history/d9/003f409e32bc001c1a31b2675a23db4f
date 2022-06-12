@@ -1,0 +1,112 @@
+package tp2;
+
+public class Electrodomestico {
+	private String nombre;
+	private double precio;
+	private String color;
+	private double consumoEnergetico;
+	private double peso;
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Electrodomestico e = new Electrodomestico("Heladera");
+		System.out.println(e.infoElectrodomestico() + e.balance() + " - Es bajo consumo? " + e.esBajoConsumo() + " - Es alta gama? " + e.esAltaGama());
+	}
+	
+	public String infoElectrodomestico() {
+		return nombre + " - $" + precio + " - " + color + " - " + consumoEnergetico + "Kw - " + peso + "kg";
+	}
+	
+	public boolean esBajoConsumo() {
+		return consumoEnergetico < 45;
+	}
+	
+	public double balance() {
+		return precio/peso;
+	}
+	
+	public boolean esAltaGama() {
+		return balance()>3;
+	}
+	
+	Electrodomestico(String nombre){
+		this.nombre = nombre;
+		this.color = "gris plata";
+		this.consumoEnergetico = 10;
+		this.precio = 100;
+		this.peso = 2;
+	}
+	
+	Electrodomestico(String nombre, String color) {
+		this.nombre = nombre;
+		this.color = color;
+		this.consumoEnergetico = 10;
+		this.precio = 100;
+		this.peso = 2;
+	}
+	
+	Electrodomestico(String nombre, String color, double consumoEnergetico) {
+		this.nombre = nombre;
+		this.color = color;
+		this.consumoEnergetico = consumoEnergetico;
+		this.precio = 100;
+		this.peso = 2;
+	}
+	
+	Electrodomestico(String nombre, String color, double consumoEnergetico, double precio) {
+		this.nombre = nombre;
+		this.color = color;
+		this.consumoEnergetico = consumoEnergetico;
+		this.precio = precio;
+		this.peso = 2;
+	}
+	
+	Electrodomestico(String nombre, String color, double consumoEnergetico, double precio, double peso) {
+		this.nombre = nombre;
+		this.color = color;
+		this.consumoEnergetico = consumoEnergetico;
+		this.precio = precio;
+		this.peso = peso;
+	}
+
+	public String getNombre() {
+		return nombre;
+	}
+
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
+
+	public double getPrecio() {
+		return precio;
+	}
+
+	public void setPrecio(double precio) {
+		this.precio = precio;
+	}
+
+	public String getColor() {
+		return color;
+	}
+
+	public void setColor(String color) {
+		this.color = color;
+	}
+
+	public double getConsumoEnergetico() {
+		return consumoEnergetico;
+	}
+
+	public void setConsumoEnergetico(double consumoEnergetico) {
+		this.consumoEnergetico = consumoEnergetico;
+	}
+
+	public double getPeso() {
+		return peso;
+	}
+
+	public void setPeso(double peso) {
+		this.peso = peso;
+	}
+
+}

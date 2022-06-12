@@ -1,0 +1,17 @@
+package Clases;
+
+public class Paciente extends Usuario{
+	private String direccion;
+	private int telefono;
+	private String email;
+	private String obraSocial;
+	private int numAfiliado;
+	public Paciente(int dni, String nombre, String apellido, String direccion, int telefono, String email, String obraSocial, int numAfiliado){
+		super(dni,nombre, apellido);
+		this.direccion = direccion;
+		this.telefono = telefono;
+		this.email = email;
+		this.obraSocial = obraSocial;
+		this.numAfiliado = numAfiliado;
+	}	
+}

@@ -1,0 +1,16 @@
+package tp2;
+
+public class Serie {
+	
+	private Temporada[] temporadas;
+	private String titulo;
+	private String descripcion;
+	private String creador;
+	private String genero;
+	
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

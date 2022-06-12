@@ -1,0 +1,7 @@
+package tp2;
+
+public class Temporada {
+	
+	private Episodio[] episodios;
+	
+}

@@ -1,0 +1,7 @@
+package Parcial5112021;
+
+public class Lote extends Elemento{
+	private String nombre;
+	
+	
+}

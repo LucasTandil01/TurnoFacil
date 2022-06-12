@@ -1,0 +1,276 @@
+package Swing;
+
+import java.awt.BorderLayout;
+import java.awt.EventQueue;
+
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
+
+import Clases.Paciente;
+import Clases.TurnoFacil;
+
+import javax.swing.GroupLayout;
+import javax.swing.GroupLayout.Alignment;
+import javax.swing.JTextField;
+import java.awt.ComponentOrientation;
+import javax.swing.SwingConstants;
+import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.LayoutStyle.ComponentPlacement;
+import javax.swing.JButton;
+
+public class RegisterFrame extends JFrame {
+
+	private JPanel contentPane;
+	private JTextField txtIngreseSusDatos;
+	private JTextField txtNombre;
+	private JTextField txtApellido;
+	private JTextField txtDireccin;
+	private JTextField txtTelfono;
+	private JTextField txtEmail;
+	private JTextField txtObraSocial;
+	private JTextField txtNmeroDeAfiliado;
+	private JTextField ingresoNombre;
+	private JTextField ingresoApellido;
+	private JTextField ingresoDireccion;
+	private JTextField ingresoTelefono;
+	private JTextField ingresoEmail;
+	private JTextField ingresoOS;
+	private JTextField ingresoNumAfiliado;
+	private JButton btnNewButton;
+	private long dni;
+	private TurnoFacil sistema;
+	/**
+	 * Launch the application.
+	 */
+	
+
+	/**
+	 * Create the frame.
+	 */
+	public RegisterFrame(long dni, TurnoFacil sis) {
+		setResizable(false);
+		this.dni = dni;
+		this.sistema = sis;
+		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+		setBounds(100, 100, 436, 295);
+		contentPane = new JPanel();
+		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		setContentPane(contentPane);
+		
+		txtIngreseSusDatos = new JTextField();
+		txtIngreseSusDatos.setFont(new Font("Tahoma", Font.PLAIN, 13));
+		txtIngreseSusDatos.setBorder(null);
+		txtIngreseSusDatos.setHorizontalAlignment(SwingConstants.CENTER);
+		txtIngreseSusDatos.setOpaque(false);
+		txtIngreseSusDatos.setFocusable(false);
+		txtIngreseSusDatos.setComponentOrientation(ComponentOrientation.LEFT_TO_RIGHT);
+		txtIngreseSusDatos.setEditable(false);
+		txtIngreseSusDatos.setText("Ingrese sus datos Paciente " + dni);
+		txtIngreseSusDatos.setColumns(10);
+		
+		txtNombre = new JTextField();
+		txtNombre.setText("Nombre: ");
+		txtNombre.setOpaque(false);
+		txtNombre.setHorizontalAlignment(SwingConstants.LEFT);
+		txtNombre.setFont(new Font("Tahoma", Font.PLAIN, 11));
+		txtNombre.setFocusable(false);
+		txtNombre.setEditable(false);
+		txtNombre.setComponentOrientation(ComponentOrientation.LEFT_TO_RIGHT);
+		txtNombre.setColumns(10);
+		txtNombre.setBorder(null);
+		
+		txtApellido = new JTextField();
+		txtApellido.setText("Apellido: ");
+		txtApellido.setOpaque(false);
+		txtApellido.setHorizontalAlignment(SwingConstants.LEFT);
+		txtApellido.setFont(new Font("Tahoma", Font.PLAIN, 11));
+		txtApellido.setFocusable(false);
+		txtApellido.setEditable(false);
+		txtApellido.setComponentOrientation(ComponentOrientation.LEFT_TO_RIGHT);
+		txtApellido.setColumns(10);
+		txtApellido.setBorder(null);
+		
+		txtDireccin = new JTextField();
+		txtDireccin.setText("Dirección: ");
+		txtDireccin.setOpaque(false);
+		txtDireccin.setHorizontalAlignment(SwingConstants.LEFT);
+		txtDireccin.setFont(new Font("Tahoma", Font.PLAIN, 11));
+		txtDireccin.setFocusable(false);
+		txtDireccin.setEditable(false);
+		txtDireccin.setComponentOrientation(ComponentOrientation.LEFT_TO_RIGHT);
+		txtDireccin.setColumns(10);
+		txtDireccin.setBorder(null);
+		
+		txtTelfono = new JTextField();
+		txtTelfono.setText("Teléfono: ");
+		txtTelfono.setOpaque(false);
+		txtTelfono.setHorizontalAlignment(SwingConstants.LEFT);
+		txtTelfono.setFont(new Font("Tahoma", Font.PLAIN, 11));
+		txtTelfono.setFocusable(false);
+		txtTelfono.setEditable(false);
+		txtTelfono.setComponentOrientation(ComponentOrientation.LEFT_TO_RIGHT);
+		txtTelfono.setColumns(10);
+		txtTelfono.setBorder(null);
+		
+		txtEmail = new JTextField();
+		txtEmail.setText("Email:");
+		txtEmail.setOpaque(false);
+		txtEmail.setHorizontalAlignment(SwingConstants.LEFT);
+		txtEmail.setFont(new Font("Tahoma", Font.PLAIN, 11));
+		txtEmail.setFocusable(false);
+		txtEmail.setEditable(false);
+		txtEmail.setComponentOrientation(ComponentOrientation.LEFT_TO_RIGHT);
+		txtEmail.setColumns(10);
+		txtEmail.setBorder(null);
+		
+		txtObraSocial = new JTextField();
+		txtObraSocial.setText("Obra Social:");
+		txtObraSocial.setOpaque(false);
+		txtObraSocial.setHorizontalAlignment(SwingConstants.LEFT);
+		txtObraSocial.setFont(new Font("Tahoma", Font.PLAIN, 11));
+		txtObraSocial.setFocusable(false);
+		txtObraSocial.setEditable(false);
+		txtObraSocial.setComponentOrientation(ComponentOrientation.LEFT_TO_RIGHT);
+		txtObraSocial.setColumns(10);
+		txtObraSocial.setBorder(null);
+		
+		txtNmeroDeAfiliado = new JTextField();
+		txtNmeroDeAfiliado.setText("Número de Afiliado:");
+		txtNmeroDeAfiliado.setOpaque(false);
+		txtNmeroDeAfiliado.setHorizontalAlignment(SwingConstants.LEFT);
+		txtNmeroDeAfiliado.setFont(new Font("Tahoma", Font.PLAIN, 11));
+		txtNmeroDeAfiliado.setFocusable(false);
+		txtNmeroDeAfiliado.setEditable(false);
+		txtNmeroDeAfiliado.setComponentOrientation(ComponentOrientation.LEFT_TO_RIGHT);
+		txtNmeroDeAfiliado.setColumns(10);
+		txtNmeroDeAfiliado.setBorder(null);
+		
+		ingresoNombre = new JTextField();
+		ingresoNombre.setColumns(10);
+		
+		ingresoApellido = new JTextField();
+		ingresoApellido.setColumns(10);
+		
+		ingresoDireccion = new JTextField();
+		ingresoDireccion.setColumns(10);
+		
+		ingresoTelefono = new JTextField();
+		ingresoTelefono.setColumns(10);
+		
+		ingresoEmail = new JTextField();
+		ingresoEmail.setColumns(10);
+		
+		ingresoOS = new JTextField();
+		ingresoOS.setColumns(10);
+		
+		ingresoNumAfiliado = new JTextField();
+		ingresoNumAfiliado.setColumns(10);
+		
+		btnNewButton = new JButton("Registrarse");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				if(camposCompletados()) {
+					sistema.addUser(new Paciente(dni, getNombre(), getApellido(), getDireccion(), getTelefono(), getEmail(), getObraSocial(), getNumeroDeAfiliado()));
+					PortalUsuario pu = new PortalUsuario(new Paciente(dni, getNombre(), getApellido(), getDireccion(), getTelefono(), getEmail(), getObraSocial(), getNumeroDeAfiliado()));
+					pu.main(null);
+					dispose();
+				}				
+			}
+		});		
+		
+		GroupLayout gl_contentPane = new GroupLayout(contentPane);
+		gl_contentPane.setHorizontalGroup(
+			gl_contentPane.createParallelGroup(Alignment.LEADING)
+				.addGroup(gl_contentPane.createSequentialGroup()
+					.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
+						.addGroup(gl_contentPane.createSequentialGroup()
+							.addContainerGap()
+							.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
+								.addGroup(gl_contentPane.createSequentialGroup()
+									.addGroup(gl_contentPane.createParallelGroup(Alignment.TRAILING, false)
+										.addComponent(txtNombre, Alignment.LEADING)
+										.addComponent(txtNmeroDeAfiliado, Alignment.LEADING, GroupLayout.DEFAULT_SIZE, 105, Short.MAX_VALUE))
+									.addPreferredGap(ComponentPlacement.RELATED)
+									.addGroup(gl_contentPane.createParallelGroup(Alignment.TRAILING)
+										.addComponent(ingresoNombre, GroupLayout.DEFAULT_SIZE, 281, Short.MAX_VALUE)
+										.addComponent(ingresoNumAfiliado, GroupLayout.PREFERRED_SIZE, 281, GroupLayout.PREFERRED_SIZE)))
+								.addGroup(gl_contentPane.createSequentialGroup()
+									.addGroup(gl_contentPane.createParallelGroup(Alignment.TRAILING, false)
+										.addComponent(txtApellido, Alignment.LEADING)
+										.addComponent(txtDireccin, Alignment.LEADING)
+										.addComponent(txtTelfono, Alignment.LEADING)
+										.addComponent(txtEmail, Alignment.LEADING)
+										.addComponent(txtObraSocial, Alignment.LEADING))
+									.addPreferredGap(ComponentPlacement.RELATED, 31, Short.MAX_VALUE)
+									.addGroup(gl_contentPane.createParallelGroup(Alignment.TRAILING)
+										.addComponent(ingresoApellido, GroupLayout.PREFERRED_SIZE, 281, GroupLayout.PREFERRED_SIZE)
+										.addComponent(ingresoDireccion, GroupLayout.PREFERRED_SIZE, 281, GroupLayout.PREFERRED_SIZE)
+										.addComponent(ingresoTelefono, GroupLayout.PREFERRED_SIZE, 281, GroupLayout.PREFERRED_SIZE)
+										.addComponent(ingresoEmail, GroupLayout.PREFERRED_SIZE, 281, GroupLayout.PREFERRED_SIZE)
+										.addComponent(ingresoOS, GroupLayout.PREFERRED_SIZE, 281, GroupLayout.PREFERRED_SIZE)))))
+						.addGroup(gl_contentPane.createSequentialGroup()
+							.addGap(149)
+							.addComponent(btnNewButton))
+						.addGroup(gl_contentPane.createSequentialGroup()
+							.addGap(47)
+							.addComponent(txtIngreseSusDatos, GroupLayout.PREFERRED_SIZE, 311, GroupLayout.PREFERRED_SIZE)))
+					.addContainerGap())
+		);
+		gl_contentPane.setVerticalGroup(
+			gl_contentPane.createParallelGroup(Alignment.LEADING)
+				.addGroup(gl_contentPane.createSequentialGroup()
+					.addComponent(txtIngreseSusDatos, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+					.addPreferredGap(ComponentPlacement.RELATED)
+					.addGroup(gl_contentPane.createParallelGroup(Alignment.BASELINE)
+						.addComponent(txtNombre, GroupLayout.PREFERRED_SIZE, 16, GroupLayout.PREFERRED_SIZE)
+						.addComponent(ingresoNombre, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+					.addPreferredGap(ComponentPlacement.RELATED)
+					.addGroup(gl_contentPane.createParallelGroup(Alignment.BASELINE)
+						.addComponent(txtApellido, GroupLayout.PREFERRED_SIZE, 16, GroupLayout.PREFERRED_SIZE)
+						.addComponent(ingresoApellido, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+					.addPreferredGap(ComponentPlacement.RELATED)
+					.addGroup(gl_contentPane.createParallelGroup(Alignment.BASELINE)
+						.addComponent(txtDireccin, GroupLayout.PREFERRED_SIZE, 16, GroupLayout.PREFERRED_SIZE)
+						.addComponent(ingresoDireccion, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+					.addPreferredGap(ComponentPlacement.RELATED)
+					.addGroup(gl_contentPane.createParallelGroup(Alignment.BASELINE)
+						.addComponent(txtTelfono, GroupLayout.PREFERRED_SIZE, 16, GroupLayout.PREFERRED_SIZE)
+						.addComponent(ingresoTelefono, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+					.addPreferredGap(ComponentPlacement.RELATED)
+					.addGroup(gl_contentPane.createParallelGroup(Alignment.BASELINE)
+						.addComponent(txtEmail, GroupLayout.PREFERRED_SIZE, 16, GroupLayout.PREFERRED_SIZE)
+						.addComponent(ingresoEmail, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+					.addPreferredGap(ComponentPlacement.RELATED)
+					.addGroup(gl_contentPane.createParallelGroup(Alignment.BASELINE)
+						.addComponent(txtObraSocial, GroupLayout.PREFERRED_SIZE, 16, GroupLayout.PREFERRED_SIZE)
+						.addComponent(ingresoOS, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+					.addPreferredGap(ComponentPlacement.RELATED)
+					.addGroup(gl_contentPane.createParallelGroup(Alignment.BASELINE)
+						.addComponent(txtNmeroDeAfiliado, GroupLayout.PREFERRED_SIZE, 16, GroupLayout.PREFERRED_SIZE)
+						.addComponent(ingresoNumAfiliado, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+					.addGap(18)
+					.addComponent(btnNewButton)
+					.addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+		);
+		contentPane.setLayout(gl_contentPane);
+	}
+	public String getNombre() {return ingresoNombre.getText();}
+	public String getApellido() {return ingresoApellido.getText();}
+	public String getDireccion() {return ingresoDireccion.getText();}
+	public long getTelefono() {return Long.valueOf(ingresoTelefono.getText());}
+	public String getEmail() {return ingresoEmail.getText();}
+	public String getObraSocial() {return ingresoOS.getText();}
+	public int getNumeroDeAfiliado() {return Integer.valueOf(ingresoNumAfiliado.getText());}	
+	public Paciente getPaciente() {return new Paciente(dni, getNombre(), getApellido(), getDireccion(), getTelefono(), getEmail(), getObraSocial(), getNumeroDeAfiliado());}
+	public JButton getButton() {return btnNewButton;}
+	
+	public boolean camposCompletados() {
+		return !getNombre().equals("")&&!getApellido().equals("")&&!getDireccion().equals("")&&
+				!ingresoTelefono.getText().equals("")&&!getEmail().equals("")
+				&&!getObraSocial().equals("")&&!ingresoNumAfiliado.getText().equals("");
+	}
+}

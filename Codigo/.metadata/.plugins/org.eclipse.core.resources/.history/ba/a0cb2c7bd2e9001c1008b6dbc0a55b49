@@ -1,0 +1,6 @@
+
+public class Paciente extends Usuario{
+	Paciente(int dni, String nombre){
+		
+	}
+}

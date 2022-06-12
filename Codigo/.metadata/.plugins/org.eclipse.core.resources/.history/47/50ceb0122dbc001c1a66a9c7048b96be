@@ -1,0 +1,202 @@
+package ej1;
+
+import java.time.LocalDateTime;
+
+public class Persona {
+
+	private String nombre;
+	private String apellido;
+	private int edad;
+	private int diaNacimiento;
+	private int mesNacimiento;
+	private int anoNacimiento;
+	private int DNI;
+	private String sexo;
+	private double peso;
+	private double altura;
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Persona p = new Persona(43658967, "Lucas", "Martínez", 22, 9, 2001, "Masculino", 60, 180);		
+		System.out.println(p.infoPersona());
+		System.out.println("IMC: " + p.IMC());
+		System.out.println("Cumple años? " + p.cumpleAnosHoy() + ". Es mayor de edad? " + p.esMayorDeEdad() + ". Puede votar? " + p.puedeVotar());
+		
+	}
+	
+	public double IMC() {
+		return (peso/Math.pow(altura/100,2));
+	}
+	
+	public boolean estaEnForma() {
+		return (IMC()>=18.5 || IMC()<=25);
+	}
+	
+	public boolean cumpleAnosHoy() {
+		return(mesNacimiento == LocalDateTime.now().getMonthValue() && diaNacimiento == LocalDateTime.now().getDayOfMonth());
+	}
+	
+	public boolean esMayorDeEdad() {
+		return (getEdad()>=18);
+	}
+	
+	public boolean puedeVotar() {
+		return (getEdad()>=16);
+	}
+	
+	public String infoPersona() {
+		return getNombre()+ " " + getApellido() + " - DNI: " + getDNI() + " - " + getEdad() + " años - Fecha de Nacimiento: " + getDiaNacimiento() + "/" + getMesNacimiento() + "/" + getAnoNacimiento() + " - " + getSexo() + " - " + getPeso() + "kg - " + getAltura() + "cm";
+	}
+	
+	public Persona(int DNI) {
+		super();
+		this.nombre = "N";
+		this.apellido = "N";
+		this.diaNacimiento = 1;
+		this.mesNacimiento = 1;
+		this.anoNacimiento = 2000;
+		this.edad = getEdad();
+		this.DNI = DNI;
+		this.sexo = "Femenino";
+		this.peso = 1;
+		this.altura = 1;
+	}
+	
+	public Persona(int DNI, String nombre, String apellido) {
+		super();
+		this.nombre = nombre;
+		this.apellido = apellido;
+		this.diaNacimiento = 1;
+		this.mesNacimiento = 1;
+		this.anoNacimiento = 2000;
+		this.edad = getEdad();
+		this.DNI = DNI;
+		this.sexo = "Femenino";
+		this.peso = 1;
+		this.altura = 1;
+	}
+	
+	public Persona(int DNI, String nombre, String apellido, int diaNacimiento, int mesNacimiento, int anoNacimiento) {
+		super();
+		this.nombre = nombre;
+		this.apellido = apellido;
+		this.diaNacimiento = diaNacimiento;
+		this.mesNacimiento = mesNacimiento;
+		this.anoNacimiento = anoNacimiento;
+		this.edad = getEdad();
+		this.DNI = DNI;
+		this.sexo = "Femenino";
+		this.peso = 1;
+		this.altura = 1;
+	}
+	
+	public Persona(int DNI, String nombre, String apellido, int diaNacimiento, int mesNacimiento, int anoNacimiento, String sexo) {
+		super();
+		this.nombre = nombre;
+		this.apellido = apellido;
+		this.diaNacimiento = diaNacimiento;
+		this.mesNacimiento = mesNacimiento;
+		this.anoNacimiento = anoNacimiento;
+		this.edad = getEdad();
+		this.DNI = DNI;
+		this.sexo = sexo;
+		this.peso = 1;
+		this.altura = 1;
+	}
+	
+	public Persona(int DNI, String nombre, String apellido, int diaNacimiento, int mesNacimiento, int anoNacimiento, String sexo, int peso, int altura) {
+		super();
+		this.nombre = nombre;
+		this.apellido = apellido;
+		this.diaNacimiento = diaNacimiento;
+		this.mesNacimiento = mesNacimiento;
+		this.anoNacimiento = anoNacimiento;
+		this.edad = getEdad();
+		this.DNI = DNI;
+		this.sexo = sexo;
+		this.peso = peso;
+		this.altura = altura;
+	}
+
+	public String getNombre() {
+		return nombre;
+	}
+
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
+
+	public String getApellido() {
+		return apellido;
+	}
+
+	public void setApellido(String apellido) {
+		this.apellido = apellido;
+	}
+
+	public int getEdad() {
+		int e = LocalDateTime.now().getYear() - getAnoNacimiento();
+		if (LocalDateTime.now().getMonthValue() < getMesNacimiento()
+				&& LocalDateTime.now().getDayOfMonth() < getDiaNacimiento()) {
+			e--;
+		}
+		return e;
+	}
+
+	public void setEdad(int edad) {
+		this.edad = edad;
+	}
+
+	public int getDiaNacimiento() {
+		return diaNacimiento;
+	}
+
+	public void setDiaNacimiento(int diaNacimiento) {
+		this.diaNacimiento = diaNacimiento;
+	}
+
+	public int getMesNacimiento() {
+		return mesNacimiento;
+	}
+
+	public void setMesNacimiento(int mesNacimiento) {
+		this.mesNacimiento = mesNacimiento;
+	}
+
+	public int getAnoNacimiento() {
+		return anoNacimiento;
+	}
+
+	public void setAnoNacimiento(int anoNacimiento) {
+		this.anoNacimiento = anoNacimiento;
+	}
+
+	public int getDNI() {
+		return DNI;
+	}
+
+	public String getSexo() {
+		return sexo;
+	}
+
+	public void setSexo(String sexo) {
+		this.sexo = sexo;
+	}
+
+	public double getPeso() {
+		return peso;
+	}
+
+	public void setPeso(int peso) {
+		this.peso = peso;
+	}
+
+	public double getAltura() {
+		return altura;
+	}
+
+	public void setAltura(int altura) {
+		this.altura = altura;
+	}
+
+}
