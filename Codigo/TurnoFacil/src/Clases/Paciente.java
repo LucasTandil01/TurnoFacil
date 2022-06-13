@@ -6,6 +6,16 @@ public class Paciente extends Usuario{
 	private String email;
 	private String obraSocial;
 	private int numAfiliado;
+	
+	public Paciente() {
+		super(12345678,"Juan", "Rodriguez");
+		this.direccion = "Calle 123";
+		this.telefono = 2494111111L;
+		this.email = "example@gmail.com";
+		this.obraSocial = "Obra Social";
+		this.numAfiliado = 12345;
+	}
+	
 	public Paciente(long dni, String nombre, String apellido, String direccion, long telefono, String email, String obraSocial, int numAfiliado){
 		super(dni,nombre, apellido);
 		this.direccion = direccion;

@@ -1,15 +1,13 @@
 package Clases;
 import java.awt.EventQueue;
+import Comparadores.*;
 import java.util.ArrayList;
-import java.util.Scanner;
-
-import javax.swing.JButton;
+import java.util.Collections;
 
 import Swing.*;
 
 public class TurnoFacil {
 	private ArrayList<Usuario> usuarios;
-	private boolean registro;
 	//private Scanner scan;
 	
 	public static void main(String[] args) {
@@ -33,6 +31,7 @@ public class TurnoFacil {
 	
 	public TurnoFacil() {
 		usuarios = new ArrayList<Usuario>();
+		//cargarUsuarios();
 	}
 	
 	public void crearPacientes() {
@@ -41,6 +40,7 @@ public class TurnoFacil {
 	}
 	
 	public boolean existeUsuario(long dni) {
+		Collections.sort(usuarios, new ComparadorDNI());
 		int i = 0;
 		int j = usuarios.size() - 1;
 		int k;
@@ -104,9 +104,7 @@ public class TurnoFacil {
 //		String nombre = scan.nextLine();
 //		//...
 	}
-	
-	public void setRegistro(boolean registro) {this.registro = registro;}
-	
+		
 	public void addUser(Usuario u) {
 		//if(!existeUsuario(u.getDni())) 
 			usuarios.add(u);

@@ -1,6 +1,5 @@
 package Swing;
 import Clases.*;
-import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
@@ -19,8 +18,6 @@ import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.text.NumberFormat;
 import java.text.ParseException;
-import java.util.ArrayList;
-
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
@@ -31,6 +28,7 @@ public class LoggerPaciente extends JFrame {
 
 	private JPanel contentPane;
 	private JTextField txtBienvenidoPaciente;
+	private JFormattedTextField ingresoDni;
 
 	/**
 	 * Create the frame.
@@ -79,10 +77,10 @@ public class LoggerPaciente extends JFrame {
 		        return super.stringToValue(text);
 		    }
 		};
-		numberFormatter.setValueClass(Long.class); //optional, ensures you will always get a long value
-		numberFormatter.setAllowsInvalid(false); //this is the key!!
-		numberFormatter.setMinimum(0l); //Optional
-		JFormattedTextField ingresoDni = new JFormattedTextField(numberFormatter);
+		numberFormatter.setValueClass(Long.class);
+		numberFormatter.setAllowsInvalid(false); 
+		numberFormatter.setMinimum(0l);
+		ingresoDni = new JFormattedTextField(numberFormatter);
 		JButton btnNewButton = new JButton("Entrar");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {

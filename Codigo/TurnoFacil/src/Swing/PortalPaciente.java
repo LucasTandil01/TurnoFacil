@@ -1,10 +1,8 @@
 package Swing;
 
-import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
-import javax.swing.JTextPane;
 import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
 import Clases.*;
@@ -13,6 +11,7 @@ import java.awt.ComponentOrientation;
 import java.awt.Font;
 import javax.swing.SwingConstants;
 import javax.swing.LayoutStyle.ComponentPlacement;
+import javax.swing.JButton;
 
 public class PortalPaciente extends JFrame {
 
@@ -37,7 +36,7 @@ public class PortalPaciente extends JFrame {
 	public PortalPaciente(Paciente p) {
 		setResizable(false);
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-		setBounds(100, 100, 471, 257);
+		setBounds(100, 100, 471, 299);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
@@ -127,6 +126,10 @@ public class PortalPaciente extends JFrame {
 		textField_6.setComponentOrientation(ComponentOrientation.LEFT_TO_RIGHT);
 		textField_6.setColumns(10);
 		textField_6.setBorder(null);
+		
+		JButton btnNewButton = new JButton("Sacar turno");
+		
+		JButton btnVerPrximosTurnos = new JButton("Ver próximos turnos");
 		GroupLayout gl_contentPane = new GroupLayout(contentPane);
 		gl_contentPane.setHorizontalGroup(
 			gl_contentPane.createParallelGroup(Alignment.TRAILING)
@@ -146,8 +149,14 @@ public class PortalPaciente extends JFrame {
 					.addGap(22))
 				.addGroup(gl_contentPane.createSequentialGroup()
 					.addGap(20)
-					.addComponent(txtpnSeAccedeAl)
+					.addComponent(txtpnSeAccedeAl, 415, 415, 415)
 					.addContainerGap())
+				.addGroup(Alignment.LEADING, gl_contentPane.createSequentialGroup()
+					.addGap(80)
+					.addComponent(btnNewButton)
+					.addPreferredGap(ComponentPlacement.RELATED, 109, Short.MAX_VALUE)
+					.addComponent(btnVerPrximosTurnos)
+					.addGap(78))
 		);
 		gl_contentPane.setVerticalGroup(
 			gl_contentPane.createParallelGroup(Alignment.LEADING)
@@ -168,9 +177,12 @@ public class PortalPaciente extends JFrame {
 					.addComponent(textField_5, GroupLayout.PREFERRED_SIZE, 16, GroupLayout.PREFERRED_SIZE)
 					.addPreferredGap(ComponentPlacement.UNRELATED)
 					.addComponent(textField_6, GroupLayout.PREFERRED_SIZE, 16, GroupLayout.PREFERRED_SIZE)
-					.addContainerGap(24, Short.MAX_VALUE))
+					.addGap(18)
+					.addGroup(gl_contentPane.createParallelGroup(Alignment.BASELINE)
+						.addComponent(btnNewButton)
+						.addComponent(btnVerPrximosTurnos))
+					.addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
 		);
 		contentPane.setLayout(gl_contentPane);
 	}
-
 }

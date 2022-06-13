@@ -1,7 +1,5 @@
 package Swing;
 
-import java.awt.BorderLayout;
-import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -64,8 +62,7 @@ public class LoggerEmpleado extends JFrame {
 		txtBienvenidoEmpleado.setComponentOrientation(ComponentOrientation.LEFT_TO_RIGHT);
 		txtBienvenidoEmpleado.setCaretColor(SystemColor.menu);
 		txtBienvenidoEmpleado.setBorder(null);
-		txtBienvenidoEmpleado.setAutoscrolls(false);
-		
+		txtBienvenidoEmpleado.setAutoscrolls(false);		
 		
 		txtNombreDeUsuario = new JTextField("Nombre de Usuario:");
 		txtNombreDeUsuario.setPreferredSize(new Dimension(2, 14));

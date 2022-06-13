@@ -1,6 +1,6 @@
 package Clases;
 
-public class Usuario {
+public class Usuario{
 	private long dni;
 	private String nombre;
 	private String apellido;

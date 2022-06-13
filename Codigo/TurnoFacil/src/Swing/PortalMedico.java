@@ -1,6 +1,5 @@
 package Swing;
 
-import java.awt.BorderLayout;
 import Clases.*;
 import java.awt.EventQueue;
 
@@ -13,6 +12,8 @@ import javax.swing.JTextField;
 import java.awt.ComponentOrientation;
 import javax.swing.SwingConstants;
 import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class PortalMedico extends JFrame {
 
@@ -44,6 +45,22 @@ public class PortalMedico extends JFrame {
 		textField.setBorder(null);
 		
 		JButton btnNewButton = new JButton("Ver Turnos");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				EventQueue.invokeLater(new Runnable() {
+					public void run() {
+						try {
+							ListaDeTurnos frame = new ListaDeTurnos(m);
+							frame.setVisible(true);
+						} catch (Exception e) {
+							e.printStackTrace();
+						}
+					}
+				});
+				dispose();
+			}
+			
+		});
 		GroupLayout gl_contentPane = new GroupLayout(contentPane);
 		gl_contentPane.setHorizontalGroup(
 			gl_contentPane.createParallelGroup(Alignment.TRAILING)
@@ -68,5 +85,4 @@ public class PortalMedico extends JFrame {
 		);
 		contentPane.setLayout(gl_contentPane);
 	}
-
 }

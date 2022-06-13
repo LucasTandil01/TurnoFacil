@@ -12,5 +12,17 @@ public class Secretaria extends Empleado{
 		this.medicos = medicos;
 		this.informe = informe;
 	}
-	
+
+	public ArrayList<Medico> getMedicos() {
+		return new ArrayList<Medico>(medicos);
+	}
+	public void setMedicos(ArrayList<Medico> medicos) {
+		this.medicos = medicos;
+	}
+	public ArrayList<Turno> getInforme() {
+		return new ArrayList<Turno>(informe);
+	}
+	public void setInforme(ArrayList<Turno> informe) {
+		this.informe = informe;	
+	}	
 }

@@ -1,11 +1,10 @@
 package Swing;
 
-import java.awt.BorderLayout;
 import java.awt.EventQueue;
-
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+import javax.swing.text.NumberFormatter;
 
 import Clases.Paciente;
 import Clases.TurnoFacil;
@@ -18,9 +17,12 @@ import javax.swing.SwingConstants;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.text.NumberFormat;
+import java.text.ParseException;
 
 import javax.swing.LayoutStyle.ComponentPlacement;
 import javax.swing.JButton;
+import javax.swing.JFormattedTextField;
 import javax.swing.UIManager;
 
 public class RegisterPaciente extends JFrame {
@@ -37,10 +39,10 @@ public class RegisterPaciente extends JFrame {
 	private JTextField ingresoNombre;
 	private JTextField ingresoApellido;
 	private JTextField ingresoDireccion;
-	private JTextField ingresoTelefono;
+	private JFormattedTextField ingresoTelefono;
 	private JTextField ingresoEmail;
 	private JTextField ingresoOS;
-	private JTextField ingresoNumAfiliado;
+	private JFormattedTextField ingresoNumAfiliado;
 	private JButton btnNewButton;
 	private long dni;
 	private TurnoFacil sistema;
@@ -158,9 +160,22 @@ public class RegisterPaciente extends JFrame {
 		ingresoApellido.setColumns(10);
 		
 		ingresoDireccion = new JTextField();
-		ingresoDireccion.setColumns(10);
+		ingresoDireccion.setColumns(10);		
 		
-		ingresoTelefono = new JTextField();
+		NumberFormat longFormat = NumberFormat.getIntegerInstance();
+		longFormat.setGroupingUsed(false);
+		NumberFormatter numberFormatter = new NumberFormatter(longFormat) {
+			@Override
+		    public Object stringToValue(String text) throws ParseException {
+		        if (text.length() == 0)
+		            return null;
+		        return super.stringToValue(text);
+		    }
+		};
+		numberFormatter.setValueClass(Long.class);
+		numberFormatter.setAllowsInvalid(false); 
+		numberFormatter.setMinimum(0l);
+		ingresoTelefono = new JFormattedTextField(numberFormatter);
 		ingresoTelefono.setColumns(10);
 		
 		ingresoEmail = new JTextField();
@@ -169,7 +184,7 @@ public class RegisterPaciente extends JFrame {
 		ingresoOS = new JTextField();
 		ingresoOS.setColumns(10);
 		
-		ingresoNumAfiliado = new JTextField();
+		ingresoNumAfiliado = new JFormattedTextField(numberFormatter);
 		ingresoNumAfiliado.setColumns(10);
 		
 		btnNewButton = new JButton("Registrarse");
