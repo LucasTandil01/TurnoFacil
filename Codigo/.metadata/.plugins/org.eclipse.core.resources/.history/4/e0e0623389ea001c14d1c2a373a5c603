@@ -1,0 +1,102 @@
+package Swing;
+
+import java.awt.BorderLayout;
+import java.awt.EventQueue;
+import Clases.*;
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.border.EmptyBorder;
+import javax.swing.DefaultListModel;
+import javax.swing.GroupLayout;
+import javax.swing.GroupLayout.Alignment;
+import javax.swing.JTextField;
+import javax.swing.SwingConstants;
+import java.awt.Font;
+import java.awt.Panel;
+import java.awt.ScrollPane;
+import javax.swing.JList;
+import javax.swing.LayoutStyle.ComponentPlacement;
+import javax.swing.ListSelectionModel;
+
+public class ListaDeTurnos extends JFrame {
+
+	private JPanel contentPane;
+	private JTextField txtTurnos;
+	private JList listaNombres;
+	private DefaultListModel modelo;
+	private JScrollPane scrollLista;
+
+	/**
+	 * Launch the application.
+	 */
+	
+	/**
+	 * Create the frame.
+	 */
+	public ListaDeTurnos(Medico m) {
+		setResizable(false);
+		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+		setBounds(100, 100, 450, 300);
+		contentPane = new JPanel();
+		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		setContentPane(contentPane);
+		
+		txtTurnos = new JTextField();
+		txtTurnos.setBorder(null);
+		txtTurnos.setOpaque(false);
+		txtTurnos.setEditable(false);
+		txtTurnos.setFont(new Font("Tahoma", Font.PLAIN, 14));
+		txtTurnos.setHorizontalAlignment(SwingConstants.CENTER);
+		txtTurnos.setText("Turnos Venideros");
+		txtTurnos.setColumns(10);
+		
+		JPanel panel = new JPanel();
+		
+		//instanciamos la lista
+		listaNombres = new JList();
+		listaNombres.setSelectionMode(ListSelectionModel.SINGLE_SELECTION );
+		  
+		//instanciamos el modelo
+		modelo = new DefaultListModel();
+		     
+		//instanciamos el Scroll que tendra la lista
+		scrollLista = new JScrollPane();
+		scrollLista.setBounds(20, 120,220, 80);
+		scrollLista.setViewportView(listaNombres);
+		
+		GroupLayout gl_contentPane = new GroupLayout(contentPane);
+		gl_contentPane.setHorizontalGroup(
+			gl_contentPane.createParallelGroup(Alignment.LEADING)
+				.addGroup(gl_contentPane.createSequentialGroup()
+					.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
+						.addGroup(gl_contentPane.createSequentialGroup()
+							.addGap(143)
+							.addComponent(txtTurnos, GroupLayout.PREFERRED_SIZE, 125, GroupLayout.PREFERRED_SIZE))
+						.addGroup(gl_contentPane.createSequentialGroup()
+							.addContainerGap()
+							.addComponent(panel, GroupLayout.DEFAULT_SIZE, 404, Short.MAX_VALUE)))
+					.addContainerGap())
+		);
+		gl_contentPane.setVerticalGroup(
+			gl_contentPane.createParallelGroup(Alignment.LEADING)
+				.addGroup(gl_contentPane.createSequentialGroup()
+					.addContainerGap()
+					.addComponent(txtTurnos, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+					.addPreferredGap(ComponentPlacement.UNRELATED)
+					.addComponent(panel, GroupLayout.DEFAULT_SIZE, 201, Short.MAX_VALUE)
+					.addContainerGap())
+		);
+		GroupLayout gl_panel = new GroupLayout(panel);
+		gl_panel.setHorizontalGroup(
+			gl_panel.createParallelGroup(Alignment.LEADING)
+				.addGap(0, 404, Short.MAX_VALUE)
+		);
+		gl_panel.setVerticalGroup(
+			gl_panel.createParallelGroup(Alignment.LEADING)
+				.addGap(0, 201, Short.MAX_VALUE)
+		);
+		panel.setLayout(gl_panel);
+		contentPane.setLayout(gl_contentPane);
+	}
+}

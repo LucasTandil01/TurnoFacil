@@ -1,0 +1,14 @@
+package Comparadores;
+
+import java.util.Comparator;
+import Clases.*;
+
+public class ComparadorDNI implements Comparator<Usuario>{
+
+	@Override
+	public int compare(Usuario o1, Usuario o2) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+}

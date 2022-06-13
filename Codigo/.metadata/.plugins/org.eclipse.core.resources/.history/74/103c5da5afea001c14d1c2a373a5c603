@@ -1,0 +1,8 @@
+package Comparadores;
+
+import java.util.Comparator;
+import Clases.*;
+
+public class ComparadorNombreUsuario implements Comparator<Empleado>{
+
+}

@@ -1,0 +1,120 @@
+package Swing;
+
+import java.awt.Container;
+import java.awt.color.CMMException;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.ArrayList;
+
+import Clases.*;
+import javax.swing.DefaultListModel;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JList;
+import javax.swing.JOptionPane;
+import javax.swing.JScrollPane;
+import javax.swing.JTextField;
+import javax.swing.ListSelectionModel;
+import java.awt.Font;
+import javax.swing.GroupLayout;
+import javax.swing.GroupLayout.Alignment;
+import javax.swing.LayoutStyle.ComponentPlacement;
+
+public class ListaDeTurnos extends JFrame implements ActionListener {
+	
+	private Container contenedor;/*declaramos el objeto Boton*/
+	private JLabel labelTitulo, mensaje;
+	private JList listaNombres;/*declaramos La Lista*/
+	private DefaultListModel modelo;/*declaramos el Modelo*/
+	private JScrollPane scrollLista;
+	
+	public ListaDeTurnos(Medico m){
+		setResizable(false);
+		/*permite iniciar las propiedades de los componentes*/
+		iniciarComponentes();
+		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+		cargarTurnos(m);
+	}
+	
+	public void cargarTurnos(Medico m) {
+		ArrayList<ArrayList<Turno>> turnos = m.getTurnos();
+		int i = 0;
+		String info = "";
+		for(ArrayList<Turno> lista: turnos) {			
+			for(Turno t: lista) {
+				info = "Hora: "+t.getHora()+". Fecha: "+t.getFecha()+". Duracion: "+t.getDuracion()+"min. Paciente: "+t.getPaciente().getNombre()+" "+t.getPaciente().getApellido();
+				modelo.addElement(info);
+			}
+			i++;
+		}
+		listaNombres.setModel(modelo);
+	}
+	
+	private void iniciarComponentes() {
+		contenedor=getContentPane();
+		
+		/*Propiedades del Label, lo instanciamos, posicionamos y
+		 * activamos los eventos*/
+		labelTitulo= new JLabel();
+		labelTitulo.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		labelTitulo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+		labelTitulo.setText("Turnos Venideros");
+		labelTitulo.setBorder(null);
+		
+		mensaje= new JLabel();
+		
+		//instanciamos el modelo
+		modelo = new DefaultListModel();
+	   	
+		//instanciamos el Scroll que tendra la lista
+	    scrollLista = new JScrollPane();
+		GroupLayout groupLayout = new GroupLayout(getContentPane());
+		groupLayout.setHorizontalGroup(
+			groupLayout.createParallelGroup(Alignment.LEADING)
+				.addGroup(groupLayout.createSequentialGroup()
+					.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
+						.addGroup(groupLayout.createSequentialGroup()
+							.addGap(20)
+							.addComponent(scrollLista, GroupLayout.PREFERRED_SIZE, 384, GroupLayout.PREFERRED_SIZE)
+							.addPreferredGap(ComponentPlacement.RELATED)
+							.addComponent(mensaje, GroupLayout.PREFERRED_SIZE, 280, GroupLayout.PREFERRED_SIZE))
+						.addGroup(groupLayout.createSequentialGroup()
+							.addGap(111)
+							.addComponent(labelTitulo, GroupLayout.PREFERRED_SIZE, 180, GroupLayout.PREFERRED_SIZE)))
+					.addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+		);
+		groupLayout.setVerticalGroup(
+			groupLayout.createParallelGroup(Alignment.LEADING)
+				.addGroup(groupLayout.createSequentialGroup()
+					.addContainerGap()
+					.addComponent(labelTitulo, GroupLayout.PREFERRED_SIZE, 43, GroupLayout.PREFERRED_SIZE)
+					.addGap(26)
+					.addGroup(groupLayout.createParallelGroup(Alignment.LEADING)
+						.addGroup(groupLayout.createSequentialGroup()
+							.addGap(159)
+							.addComponent(mensaje, GroupLayout.PREFERRED_SIZE, 23, GroupLayout.PREFERRED_SIZE))
+						.addGroup(groupLayout.createSequentialGroup()
+							.addGap(58)
+							.addComponent(scrollLista, GroupLayout.PREFERRED_SIZE, 102, GroupLayout.PREFERRED_SIZE)))
+					.addContainerGap(111, Short.MAX_VALUE))
+		);
+		
+		//instanciamos la lista
+		listaNombres = new JList();
+		scrollLista.setViewportView(listaNombres);
+		listaNombres.setSelectionMode(ListSelectionModel.SINGLE_SELECTION );
+		getContentPane().setLayout(groupLayout);
+		//contenedor.add(botonCam);
+	}
+
+
+	@Override
+	public void actionPerformed(ActionEvent evento) {
+	}
+	
+	private void borrarLista() {
+		modelo.clear();
+	}
+
+}
