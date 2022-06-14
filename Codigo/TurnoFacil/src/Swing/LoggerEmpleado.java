@@ -24,6 +24,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 import java.awt.event.ActionEvent;
+import javax.swing.UIManager;
 
 public class LoggerEmpleado extends JFrame {
 
@@ -33,6 +34,7 @@ public class LoggerEmpleado extends JFrame {
 	private JTextField txtContrasea;
 	private JFormattedTextField ingresoUser;
 	private JPasswordField ingresoPass;
+	private JTextField txtDatosNoCoincidentes;
 
 	/**
 	 * Launch the application.
@@ -45,7 +47,7 @@ public class LoggerEmpleado extends JFrame {
 	public LoggerEmpleado(TurnoFacil sistema) {
 		setResizable(false);
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-		setBounds(100, 100, 369, 184);
+		setBounds(100, 100, 369, 217);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
@@ -116,6 +118,17 @@ public class LoggerEmpleado extends JFrame {
 			}
 		});
 		
+		txtDatosNoCoincidentes = new JTextField();
+		txtDatosNoCoincidentes.setDisabledTextColor(UIManager.getColor("Button.background"));
+		txtDatosNoCoincidentes.setBorder(null);
+		txtDatosNoCoincidentes.setEnabled(false);
+		txtDatosNoCoincidentes.setEditable(false);
+		txtDatosNoCoincidentes.setFocusable(false);
+		txtDatosNoCoincidentes.setOpaque(false);
+		txtDatosNoCoincidentes.setHorizontalAlignment(SwingConstants.CENTER);
+		txtDatosNoCoincidentes.setText("Datos no coincidentes");
+		txtDatosNoCoincidentes.setColumns(10);
+		
 		GroupLayout gl_contentPane = new GroupLayout(contentPane);
 		gl_contentPane.setHorizontalGroup(
 			gl_contentPane.createParallelGroup(Alignment.LEADING)
@@ -128,16 +141,18 @@ public class LoggerEmpleado extends JFrame {
 								.addComponent(txtContrasea, GroupLayout.PREFERRED_SIZE, 119, GroupLayout.PREFERRED_SIZE))
 							.addPreferredGap(ComponentPlacement.UNRELATED)
 							.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
-								.addComponent(ingresoPass)
+								.addComponent(ingresoPass, 168, 168, 168)
 								.addComponent(ingresoUser, GroupLayout.PREFERRED_SIZE, 168, GroupLayout.PREFERRED_SIZE)))
 						.addGroup(gl_contentPane.createSequentialGroup()
 							.addGap(103)
-							.addComponent(txtBienvenidoEmpleado, GroupLayout.PREFERRED_SIZE, 136, GroupLayout.PREFERRED_SIZE)))
-					.addContainerGap(24, GroupLayout.PREFERRED_SIZE))
-				.addGroup(gl_contentPane.createSequentialGroup()
-					.addGap(121)
-					.addComponent(btnNewButton, GroupLayout.PREFERRED_SIZE, 86, GroupLayout.PREFERRED_SIZE)
-					.addContainerGap(136, Short.MAX_VALUE))
+							.addComponent(txtBienvenidoEmpleado, GroupLayout.PREFERRED_SIZE, 136, GroupLayout.PREFERRED_SIZE))
+						.addGroup(gl_contentPane.createSequentialGroup()
+							.addGap(121)
+							.addComponent(btnNewButton, GroupLayout.PREFERRED_SIZE, 86, GroupLayout.PREFERRED_SIZE))
+						.addGroup(gl_contentPane.createSequentialGroup()
+							.addGap(65)
+							.addComponent(txtDatosNoCoincidentes, GroupLayout.PREFERRED_SIZE, 209, GroupLayout.PREFERRED_SIZE)))
+					.addContainerGap(20, Short.MAX_VALUE))
 		);
 		gl_contentPane.setVerticalGroup(
 			gl_contentPane.createParallelGroup(Alignment.LEADING)
@@ -152,7 +167,9 @@ public class LoggerEmpleado extends JFrame {
 					.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
 						.addComponent(ingresoPass, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
 						.addComponent(txtContrasea, GroupLayout.PREFERRED_SIZE, 14, GroupLayout.PREFERRED_SIZE))
-					.addPreferredGap(ComponentPlacement.RELATED, 12, Short.MAX_VALUE)
+					.addPreferredGap(ComponentPlacement.RELATED, 25, Short.MAX_VALUE)
+					.addComponent(txtDatosNoCoincidentes, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+					.addPreferredGap(ComponentPlacement.RELATED)
 					.addComponent(btnNewButton)
 					.addContainerGap())
 		);
@@ -161,8 +178,12 @@ public class LoggerEmpleado extends JFrame {
 	
 	public void irPortalEmpleado(TurnoFacil sistema, String user, String pass) {
 		if(camposCompletados()) {
-			sistema.login(user, pass);
-			dispose();
+			if(sistema.login(user, pass)) {
+				dispose();
+			}else {
+				txtDatosNoCoincidentes.setEnabled(true);
+			}
+			
 		}		
 	}
 	

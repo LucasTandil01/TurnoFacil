@@ -1,0 +1,13 @@
+package Clases;
+
+public class ResponsableInst extends Empleado{
+	private TurnoFacil sistema;
+	ResponsableInst(TurnoFacil sistema, long dni, String nombre, String apellido, String nombreUsuario, String contrasenia) {
+		super(dni, nombre, apellido, nombreUsuario, contrasenia);
+		this.sistema = sistema;
+	}
+	
+	public void crearMedico(String nombreUsuario, String contrasenia) {
+		
+	}
+}

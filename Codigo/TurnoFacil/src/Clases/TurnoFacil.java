@@ -12,6 +12,8 @@ public class TurnoFacil {
 	
 	public static void main(String[] args) {
 		TurnoFacil sistema = new TurnoFacil();
+		ResponsableInst ri = new ResponsableInst(sistema,12345678,"Carlos","Sanchez","admin","admin");
+		ri.crearMedicos();
 		sistema.launch();
 	}
 	
@@ -33,28 +35,24 @@ public class TurnoFacil {
 		usuarios = new ArrayList<Usuario>();
 		//cargarUsuarios();
 	}
+
 	
-	public void crearPacientes() {
-		Paciente p = new Paciente(43658967,"Lucas","Martinez","Brandsen 1262",2494554777L, "lucastandil01@gmail.com", "OSSEG",12345);
-		addUser(p);
-	}
-	
-	public boolean existeUsuario(long dni) {
-		Collections.sort(usuarios, new ComparadorDNI());
-		int i = 0;
-		int j = usuarios.size() - 1;
-		int k;
-		long dniAux;
-		while (i<=j) {
-			k = (i+j)/2;
-			dniAux = usuarios.get(k).getDni();
-			if(dni == dniAux)
-				return true;
-			if(dni<dniAux) j = k+1;
-			else i = k-1;
-		}
-		return false;
-	}
+//	public boolean existeUsuario(long dni) {
+//		Collections.sort(usuarios, new ComparadorDNI());
+//		int i = 0;
+//		int j = usuarios.size() - 1;
+//		int k;
+//		long dniAux;
+//		while (i<=j) {
+//			k = (i+j)/2;
+//			dniAux = usuarios.get(k).getDni();
+//			if(dni == dniAux)
+//				return true;
+//			if(dni<dniAux) j = k+1;
+//			else i = k-1;
+//		}
+//		return false;
+//	}
 	
 	public void login(long dni){
 //		if(!existeUsuario(dni))
@@ -65,27 +63,32 @@ public class TurnoFacil {
 
 	}
 	
-	public void login(String user, String pass) {
+	public boolean login(String user, String pass) {
 		Medico m =  buscarEmpleado(user, pass);
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					PortalMedico frame = new PortalMedico(m);
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
+		if (m!=null) {
+			EventQueue.invokeLater(new Runnable() {
+				public void run() {
+					try {
+						PortalMedico frame = new PortalMedico(m);
+						frame.setVisible(true);
+					} catch (Exception e) {
+						e.printStackTrace();
+					}
 				}
-			}
-		});
-	}
-	
-	public Paciente buscarPaciente(long dni) {
-		return null;
+			});
+			return true;
+		}
+		return false;
 	}
 	
 	public Medico buscarEmpleado(String user, String pass) {
-		Medico m = new Medico(12345678,"Rodrigo","Perez",user, pass, "Cirujano");
-		return m;
+		for(Usuario u: usuarios) {
+			if(u.getClass().equals(Medico.class)&&((Medico)u).getNombreUsuario().equals(user)&&((Medico)u).getContrasenia().equals(pass)){
+				return (Medico)u;
+			}
+		}
+//		Medico m = new Medico(12345678,"Rodrigo","Perez",user, pass, "Cirujano");
+		return null;
 	}
 	
 	private void registrarPaciente(long dni) {

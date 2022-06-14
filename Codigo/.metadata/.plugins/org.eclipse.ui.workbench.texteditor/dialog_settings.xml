@@ -8,6 +8,7 @@
 		<item key="isRegEx" value="false"/>
 		<item key="selection" value=""/>
 		<list key="findhistory">
+			<item value="if(checkDesde.isSelected()) {"/>
 			<item value="package ej1;"/>
 		</list>
 		<list key="replacehistory">
