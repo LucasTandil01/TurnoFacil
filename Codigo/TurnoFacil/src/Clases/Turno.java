@@ -16,6 +16,12 @@ public class Turno implements Comparable<Turno>{
 		this.paciente = paciente;
 		this.duracion = duracion;
 	}
+	
+	public boolean estaOcupado() {
+			return (this.paciente != null) ;
+				
+	}
+	
 	public String getHora() {
 		return hora;
 	}
@@ -47,5 +53,7 @@ public class Turno implements Comparable<Turno>{
 		this.duracion = duracion;
 	}
 	@Override
-	public int compareTo(Turno t) {return hora.compareTo(t.getHora());}	
+	public int compareTo(Turno t) {return hora.compareTo(t.getHora());}
+
+		
 }

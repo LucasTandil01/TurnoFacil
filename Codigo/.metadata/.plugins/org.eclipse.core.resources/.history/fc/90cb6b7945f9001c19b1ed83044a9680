@@ -1,0 +1,18 @@
+package Filtros;
+import Clases.Medico;
+public class FltroHorario extends Filtro{
+
+		private String especialidad;
+
+		public FiltroEspecialidad(String especialidad) {
+			super();
+			this.especialidad = especialidad;
+		}
+		
+		@Override 
+		public boolean cumple(Medico m) {
+			return especialidad.equals("")||m.getEspecialidad().toLowerCase().contains(especialidad.toLowerCase());
+		}
+		
+	
+}

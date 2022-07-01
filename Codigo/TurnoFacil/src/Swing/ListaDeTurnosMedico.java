@@ -65,8 +65,10 @@ public class ListaDeTurnosMedico extends JFrame implements ActionListener {
 	public void actualizarTurnos(ArrayList<Turno> turnos) {		
 		String info = "";					
 		for(Turno t: turnos) {
+			if(t.getPaciente()!=null) {
 			info = "Hora: "+t.getHora()+". Fecha: "+t.getFecha()+". Duracion: "+t.getDuracion()+"min. Paciente: "+t.getPaciente().getNombre()+" "+t.getPaciente().getApellido();
 			modelo.addElement(info);
+			}
 		}
 		listaTurnos.setModel(modelo);
 	}

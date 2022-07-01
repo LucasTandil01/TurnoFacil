@@ -31,7 +31,6 @@ public class ResponsableInst extends Empleado{
 	public void crearMedico(long dni, String nombre, String apellido, String nombreUsuario, String contrasenia,
 			String especialidad) {
 		Medico m = new Medico(dni, nombre, apellido, nombreUsuario, contrasenia,especialidad);		
-		m.generarTurnos();
 		sistema.addMedico(m);
 	}
 	
@@ -40,7 +39,6 @@ public class ResponsableInst extends Empleado{
 			ArrayList<Integer> dias, int horaInicio, int horaFin) {
 		Medico m = new Medico(dni, nombre, apellido, nombreUsuario, contrasenia,
 								turnos, obrasSociales, especialidad, dias, horaInicio, horaFin);		
-		m.generarTurnos();
 		sistema.addMedico(m);
 	}
 }
