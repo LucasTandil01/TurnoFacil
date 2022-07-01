@@ -4,15 +4,12 @@ public class Usuario{
 	private long dni;
 	private String nombre;
 	private String apellido;
-	
-	
-	
+		
 	Usuario(long dni, String nombre, String apellido){
 		this.dni = dni;
 		this.nombre = nombre;
 		this.apellido = apellido;
-	}	
-	
+	}		
 
 //	@Override
 //	public boolean equals(Object o) {

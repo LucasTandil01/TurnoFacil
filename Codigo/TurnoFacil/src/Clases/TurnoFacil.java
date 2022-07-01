@@ -1,18 +1,21 @@
 package Clases;
 import java.awt.EventQueue;
-import Comparadores.*;
 import java.util.ArrayList;
-import java.util.Collections;
 
+import Filtros.Filtro;
 import Swing.*;
 
 public class TurnoFacil {
-	private ArrayList<Usuario> usuarios;
+//	private ArrayList<Usuario> usuarios;
+	private ArrayList<Paciente> pacientes;
+	private ArrayList<Medico> medicos;
+	private ArrayList<Secretaria> secretarias;
+	private static ResponsableInst ri;
 	//private Scanner scan;
 	
 	public static void main(String[] args) {
 		TurnoFacil sistema = new TurnoFacil();
-		ResponsableInst ri = new ResponsableInst(sistema,12345678,"Carlos","Sanchez","admin","admin");
+		ri = new ResponsableInst(sistema,12345678,"Carlos","Sanchez","admin","admin");
 		ri.crearMedicos();
 		sistema.launch();
 	}
@@ -32,27 +35,12 @@ public class TurnoFacil {
 	}
 	
 	public TurnoFacil() {
-		usuarios = new ArrayList<Usuario>();
+//		usuarios = new ArrayList<Usuario>();
 		//cargarUsuarios();
+		pacientes = new ArrayList<Paciente>();
+		medicos = new ArrayList<Medico>();
+		secretarias = new ArrayList<Secretaria>();
 	}
-
-	
-//	public boolean existeUsuario(long dni) {
-//		Collections.sort(usuarios, new ComparadorDNI());
-//		int i = 0;
-//		int j = usuarios.size() - 1;
-//		int k;
-//		long dniAux;
-//		while (i<=j) {
-//			k = (i+j)/2;
-//			dniAux = usuarios.get(k).getDni();
-//			if(dni == dniAux)
-//				return true;
-//			if(dni<dniAux) j = k+1;
-//			else i = k-1;
-//		}
-//		return false;
-//	}
 	
 	public void login(long dni){
 //		if(!existeUsuario(dni))
@@ -64,7 +52,7 @@ public class TurnoFacil {
 	}
 	
 	public boolean login(String user, String pass) {
-		Medico m =  buscarEmpleado(user, pass);
+		Medico m =  buscarMedico(user, pass);
 		if (m!=null) {
 			EventQueue.invokeLater(new Runnable() {
 				public void run() {
@@ -81,11 +69,9 @@ public class TurnoFacil {
 		return false;
 	}
 	
-	public Medico buscarEmpleado(String user, String pass) {
-		for(Usuario u: usuarios) {
-			if(u.getClass().equals(Medico.class)&&((Medico)u).getNombreUsuario().equals(user)&&((Medico)u).getContrasenia().equals(pass)){
-				return (Medico)u;
-			}
+	public Medico buscarMedico(String user, String pass) {
+		for(Medico m: medicos) {
+			if(m.getNombreUsuario().equals(user)&&m.getContrasenia().equals(pass))return m;
 		}
 //		Medico m = new Medico(12345678,"Rodrigo","Perez",user, pass, "Cirujano");
 		return null;
@@ -107,9 +93,30 @@ public class TurnoFacil {
 //		String nombre = scan.nextLine();
 //		//...
 	}
-		
-	public void addUser(Usuario u) {
+	
+	public ArrayList<Medico> buscarMedicos(Filtro f){
+		ArrayList<Medico> salida = new ArrayList<>();
+		for(Medico m : medicos) {
+			if(f.cumple(m))
+				salida.add(m);
+		}
+		return salida;
+	}
+	
+	public ArrayList<Medico> getMedicos(){return new ArrayList<Medico>(medicos);}
+	public ArrayList<Secretaria> getSecretarias(){return new ArrayList<Secretaria>(secretarias);}
+	public ArrayList<Paciente> getPacientes(){return new ArrayList<Paciente>(pacientes);}
+	
+	public void addPaciente(Paciente p) {
+		//if(!existeUsuario(p.getDni())) 
+		pacientes.add(p);
+	}
+	public void addMedico(Medico m) {
 		//if(!existeUsuario(u.getDni())) 
-			usuarios.add(u);
+		medicos.add(m);
+	}
+	public void addUser(Secretaria s) {
+		//if(!existeUsuario(u.getDni())) 
+		secretarias.add(s);
 	}
 }

@@ -8,10 +8,13 @@ import javax.swing.GroupLayout.Alignment;
 import Clases.*;
 import javax.swing.JTextField;
 import java.awt.ComponentOrientation;
+import java.awt.EventQueue;
 import java.awt.Font;
 import javax.swing.SwingConstants;
 import javax.swing.LayoutStyle.ComponentPlacement;
 import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class PortalPaciente extends JFrame {
 
@@ -33,7 +36,7 @@ public class PortalPaciente extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public PortalPaciente(Paciente p) {
+	public PortalPaciente(Paciente p, TurnoFacil sistema) {
 		setResizable(false);
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 471, 299);
@@ -128,6 +131,20 @@ public class PortalPaciente extends JFrame {
 		textField_6.setBorder(null);
 		
 		JButton btnNewButton = new JButton("Sacar turno");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				EventQueue.invokeLater(new Runnable() {
+					public void run() {
+						try {
+							ListaDeMedicos frame = new ListaDeMedicos(sistema);
+							frame.setVisible(true);
+						} catch (Exception e) {
+							e.printStackTrace();
+						}
+					}
+				});
+			}
+		});
 		
 		JButton btnVerPrximosTurnos = new JButton("Ver próximos turnos");
 		GroupLayout gl_contentPane = new GroupLayout(contentPane);

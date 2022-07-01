@@ -50,7 +50,7 @@ public class PortalMedico extends JFrame {
 				EventQueue.invokeLater(new Runnable() {
 					public void run() {
 						try {
-							ListaDeTurnos frame = new ListaDeTurnos(m);
+							ListaDeTurnosMedico frame = new ListaDeTurnosMedico(m);
 							frame.setVisible(true);
 						} catch (Exception e) {
 							e.printStackTrace();

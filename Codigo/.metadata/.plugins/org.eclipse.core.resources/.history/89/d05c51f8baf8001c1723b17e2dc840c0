@@ -1,0 +1,87 @@
+package Swing;
+
+import java.awt.BorderLayout;
+import java.awt.EventQueue;
+
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
+import javax.swing.GroupLayout;
+import javax.swing.GroupLayout.Alignment;
+import javax.swing.JButton;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+import javax.swing.JList;
+import javax.swing.ListSelectionModel;
+import javax.swing.LayoutStyle.ComponentPlacement;
+import javax.swing.JLabel;
+import java.awt.Font;
+import javax.swing.SwingConstants;
+
+public class ListaDeMedicos extends JFrame {
+
+	private JPanel contentPane;
+
+	/**
+	 * Create the frame.
+	 */
+	public ListaDeMedicos() {
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setBounds(100, 100, 506, 424);
+		contentPane = new JPanel();
+		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		setContentPane(contentPane);
+		
+		JButton btnNewButton = new JButton("Seleccionar Médico");
+		btnNewButton.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				EventQueue.invokeLater(new Runnable() {
+					public void run() {
+						try {
+							Turnero frame = new Turnero();
+							frame.setVisible(true);
+						} catch (Exception e) {
+							e.printStackTrace();
+						}
+					}
+				});
+			}
+		});
+		
+		JList listaTurnos = new JList();
+		listaTurnos.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
+		
+		JLabel lblMdicos = new JLabel();
+		lblMdicos.setText("Médicos");
+		lblMdicos.setHorizontalAlignment(SwingConstants.CENTER);
+		lblMdicos.setFont(new Font("Tahoma", Font.PLAIN, 16));
+		lblMdicos.setBorder(null);
+		GroupLayout gl_contentPane = new GroupLayout(contentPane);
+		gl_contentPane.setHorizontalGroup(
+			gl_contentPane.createParallelGroup(Alignment.TRAILING)
+				.addGroup(gl_contentPane.createSequentialGroup()
+					.addContainerGap(27, Short.MAX_VALUE)
+					.addComponent(listaTurnos, GroupLayout.PREFERRED_SIZE, 433, GroupLayout.PREFERRED_SIZE)
+					.addGap(20))
+				.addGroup(Alignment.LEADING, gl_contentPane.createSequentialGroup()
+					.addGap(177)
+					.addComponent(btnNewButton)
+					.addContainerGap(180, Short.MAX_VALUE))
+				.addGroup(Alignment.LEADING, gl_contentPane.createSequentialGroup()
+					.addGap(146)
+					.addComponent(lblMdicos, GroupLayout.PREFERRED_SIZE, 180, GroupLayout.PREFERRED_SIZE)
+					.addContainerGap(154, Short.MAX_VALUE))
+		);
+		gl_contentPane.setVerticalGroup(
+			gl_contentPane.createParallelGroup(Alignment.TRAILING)
+				.addGroup(gl_contentPane.createSequentialGroup()
+					.addComponent(lblMdicos, GroupLayout.PREFERRED_SIZE, 43, GroupLayout.PREFERRED_SIZE)
+					.addPreferredGap(ComponentPlacement.RELATED, 30, Short.MAX_VALUE)
+					.addComponent(listaTurnos, GroupLayout.PREFERRED_SIZE, 181, GroupLayout.PREFERRED_SIZE)
+					.addGap(18)
+					.addComponent(btnNewButton)
+					.addGap(19))
+		);
+		contentPane.setLayout(gl_contentPane);
+	}
+}

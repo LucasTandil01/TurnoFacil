@@ -7,12 +7,19 @@ public class FiltroOS extends Filtro{
 
 	public FiltroOS(String os) {
 		super();
-		this.obraSocial = os;
+		this.obraSocial = os;	
+	}
 	
+	private boolean contiene(Medico m) {
+		for(String o:m.getObrasSociales()) {
+			if(o.toLowerCase().contains(obraSocial.toLowerCase()))
+				return true;	
+		}
+		return false;
 	}
 
 	@Override
 	public boolean cumple(Medico m) {
-		return m.getObrasSociales().contains(obraSocial);
+		return obraSocial.equals("")||contiene(m);
 	}
 }

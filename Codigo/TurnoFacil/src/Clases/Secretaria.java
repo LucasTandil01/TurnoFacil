@@ -26,14 +26,5 @@ public class Secretaria extends Empleado{
 	}
 	public void setInforme(ArrayList<Turno> informe) {
 		this.informe = informe;	
-	}
-	
-	public ArrayList<Medico> listar(Filtro f){
-		ArrayList<Medico> salida = new ArrayList<>();
-		for(Medico m : medicos) {
-			if(f.cumple(m))
-				salida.add(m);
-		}
-		return salida;
-	}
+	}		
 }

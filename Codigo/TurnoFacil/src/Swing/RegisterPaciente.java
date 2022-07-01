@@ -192,12 +192,12 @@ public class RegisterPaciente extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				if(camposCompletados()) {
 					Paciente paciente = new Paciente(dni, getNombre(), getApellido(), getDireccion(), getTelefono(), getEmail(), getObraSocial(), getNumeroDeAfiliado());
-					sistema.addUser(paciente);
-					PortalPaciente pu = new PortalPaciente(paciente);
+					sistema.addPaciente(paciente);
+					PortalPaciente pu = new PortalPaciente(paciente, sistema);
 					EventQueue.invokeLater(new Runnable() {
 						public void run() {
 							try {
-								PortalPaciente frame = new PortalPaciente(paciente);
+								PortalPaciente frame = new PortalPaciente(paciente, sistema);
 								frame.setVisible(true);
 							} catch (Exception e) {
 								e.printStackTrace();

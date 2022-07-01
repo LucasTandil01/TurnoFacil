@@ -9,6 +9,7 @@ public class Medico extends Empleado{
 	private ArrayList<String> obrasSociales;
 	private String especialidad;
 	private ArrayList<Integer> dias;
+	// 0 = Domingo, 1 = Lunes ... 6 = Sábado
 	private int horaInicio;
 	private int horaFin;
 	

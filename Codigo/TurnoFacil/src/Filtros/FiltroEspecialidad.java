@@ -12,7 +12,7 @@ public class FiltroEspecialidad  extends Filtro{
 	
 	@Override 
 	public boolean cumple(Medico m) {
-		return m.getEspecialidad().equalsIgnoreCase(especialidad);
+		return especialidad.equals("")||m.getEspecialidad().toLowerCase().contains(especialidad.toLowerCase());
 	}
 	
 }

@@ -1,0 +1,21 @@
+package Filtros;
+
+import Clases.Medico;
+
+public class FiltroOS extends Filtro{
+	private String obraSocial;
+
+	public FiltroOS(String os) {
+		super();
+		this.obraSocial = os;	
+	}
+	
+	private boolean contiene(String os) {
+		
+	}
+
+	@Override
+	public boolean cumple(Medico m) {
+		return obraSocial.equals("")||m.getObrasSociales().contains(obraSocial);
+	}
+}

@@ -48,16 +48,29 @@ public class Menu {
 		JButton btnSoyPaciente = new JButton("Soy Paciente");
 		btnSoyPaciente.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				Paciente paciente = new Paciente();
+				sistema.addPaciente(paciente);
+				PortalPaciente pu = new PortalPaciente(paciente, sistema);
 				EventQueue.invokeLater(new Runnable() {
 					public void run() {
 						try {
-							LoggerPaciente frame = new LoggerPaciente(sistema);
+							PortalPaciente frame = new PortalPaciente(paciente, sistema);
 							frame.setVisible(true);
 						} catch (Exception e) {
 							e.printStackTrace();
 						}
 					}
 				});
+//				EventQueue.invokeLater(new Runnable() {
+//					public void run() {
+//						try {
+//							LoggerPaciente frame = new LoggerPaciente(sistema);
+//							frame.setVisible(true);
+//						} catch (Exception e) {
+//							e.printStackTrace();
+//						}
+//					}
+//				});
 			}
 		});
 		

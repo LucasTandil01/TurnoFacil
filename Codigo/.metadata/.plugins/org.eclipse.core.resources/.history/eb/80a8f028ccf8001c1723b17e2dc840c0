@@ -1,0 +1,33 @@
+package Clases;
+
+import java.util.ArrayList;
+
+public class ResponsableInst extends Empleado{
+	private TurnoFacil sistema;
+	ResponsableInst(TurnoFacil sistema, long dni, String nombre, String apellido, String nombreUsuario, String contrasenia) {
+		super(dni, nombre, apellido, nombreUsuario, contrasenia);
+		this.sistema = sistema;
+	}
+	
+	public void crearMedicos() {
+		ArrayList<String> obrasSociales = new ArrayList<String>();
+		ArrayList<Integer> dias = new ArrayList<Integer>();
+		crearMedico(22555444,"Julian","Alvarez","jAlvarez","123456", "Obstetra", new ArrayList<ArrayList<Turno>>(), obrasSociales, dias, 8, 12);
+		crearMedico(15666777,"Roberto","Lopez","rLopez","1234","Cirujano");
+	}
+	
+	public void crearMedico(long dni, String nombre, String apellido, String nombreUsuario, String contrasenia,
+			String especialidad) {
+		Medico m = new Medico(dni, nombre, apellido, nombreUsuario, contrasenia,especialidad);		
+		m.generarTurnos();
+		sistema.addMedico(m);
+	}
+	
+	public void crearMedico(long dni, String nombre, String apellido, String nombreUsuario, String contrasenia,
+			ArrayList<ArrayList<Turno>> turnos, ArrayList<String> obrasSociales, String especialidad,
+			ArrayList<Integer> dias, int horaInicio, int horaFin) {
+		Medico m = new Medico(dni, nombre, apellido, nombreUsuario, contrasenia,especialidad);		
+		m.generarTurnos();
+		sistema.addMedico(m);
+	}
+}
