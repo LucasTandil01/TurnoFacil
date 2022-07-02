@@ -1,18 +1,20 @@
 package Filtros;
 
 import Clases.Medico;
+import Clases.ObraSocial;
 
 public class FiltroOS extends Filtro{
-	private String obraSocial;
+	private ObraSocial obraSocial;
 
-	public FiltroOS(String os) {
+	public FiltroOS(ObraSocial os) {
 		super();
 		this.obraSocial = os;	
 	}
 	
 	private boolean contiene(Medico m) {
-		for(String o:m.getObrasSociales()) {
-			if(o.toLowerCase().contains(obraSocial.toLowerCase()))
+		for(ObraSocial o:m.getObrasSociales()){
+			String o2 = o.getNombre(); 
+			if(o2.toLowerCase().contains(obraSocial.getNombre().toLowerCase()))
 				return true;	
 		}
 		return false;
@@ -20,6 +22,6 @@ public class FiltroOS extends Filtro{
 
 	@Override
 	public boolean cumple(Medico m) {
-		return obraSocial.equals("")||contiene(m);
+		return obraSocial.getNombre().equals("")||contiene(m);
 	}
 }

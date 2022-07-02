@@ -109,7 +109,7 @@ public class PortalPaciente extends JFrame {
 		textField_4.setBorder(null);
 		
 		textField_5 = new JTextField();
-		textField_5.setText("Obra Social: " + p.getObraSocial());
+		textField_5.setText("Obra Social: " + p.getObraSocialNombre());
 		textField_5.setOpaque(false);
 		textField_5.setHorizontalAlignment(SwingConstants.LEFT);
 		textField_5.setFont(new Font("Tahoma", Font.PLAIN, 11));

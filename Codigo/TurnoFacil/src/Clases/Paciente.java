@@ -4,7 +4,7 @@ public class Paciente extends Usuario{
 	private String direccion;
 	private long telefono;
 	private String email;
-	private String obraSocial;
+	private ObraSocial obraSocial;
 	private int numAfiliado;
 	
 	public Paciente() {
@@ -12,16 +12,16 @@ public class Paciente extends Usuario{
 		this.direccion = "Calle 123";
 		this.telefono = 2494111111L;
 		this.email = "example@gmail.com";
-		this.obraSocial = "Obra Social";
+		this.obraSocial = new ObraSocial("Obra Social");
 		this.numAfiliado = 12345;
 	}
 	
-	public Paciente(long dni, String nombre, String apellido, String direccion, long telefono, String email, String obraSocial, int numAfiliado){
+	public Paciente(long dni, String nombre, String apellido, String direccion, long telefono, String email, ObraSocial obraSocial, int numAfiliado){
 		super(dni,nombre, apellido);
 		this.direccion = direccion;
 		this.telefono = telefono;
 		this.email = email;
-		this.obraSocial = obraSocial;
+		this.obraSocial.setNombre(obraSocial.getNombre());
 		this.numAfiliado = numAfiliado;
 	}
 	
@@ -43,11 +43,11 @@ public class Paciente extends Usuario{
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	public String getObraSocial() {
-		return obraSocial;
+	public String getObraSocialNombre() {
+		return obraSocial.getNombre();
 	}
-	public void setObraSocial(String obraSocial) {
-		this.obraSocial = obraSocial;
+	public void setObraSocial(ObraSocial obraSocial) {
+		this.obraSocial.setNombre(obraSocial.getNombre());
 	}
 	public int getNumAfiliado() {
 		return numAfiliado;

@@ -60,7 +60,8 @@ public class ListaDeMedicos extends JFrame {
 	}
 	
 	public void busqueda(TurnoFacil sistema) {
-		Filtro busqueda = new FiltroAND(new FiltroEspecialidad(especialidadSearch.getText()), new FiltroOS(OSSearch.getText()));				
+		ObraSocial os = new ObraSocial(OSSearch.getText());
+		Filtro busqueda = new FiltroAND(new FiltroEspecialidad(especialidadSearch.getText()), new FiltroOS(os));				
 		actualizarMedicos(sistema.buscarMedicos(busqueda));
 	}
 	

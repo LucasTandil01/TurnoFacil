@@ -6,6 +6,7 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.text.NumberFormatter;
 
+import Clases.ObraSocial;
 import Clases.Paciente;
 import Clases.TurnoFacil;
 
@@ -191,7 +192,8 @@ public class RegisterPaciente extends JFrame {
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				if(camposCompletados()) {
-					Paciente paciente = new Paciente(dni, getNombre(), getApellido(), getDireccion(), getTelefono(), getEmail(), getObraSocial(), getNumeroDeAfiliado());
+					ObraSocial os = new ObraSocial(getObraSocial());
+					Paciente paciente = new Paciente(dni, getNombre(), getApellido(), getDireccion(), getTelefono(), getEmail(), os , getNumeroDeAfiliado());
 					sistema.addPaciente(paciente);
 					PortalPaciente pu = new PortalPaciente(paciente, sistema);
 					EventQueue.invokeLater(new Runnable() {
@@ -310,7 +312,9 @@ public class RegisterPaciente extends JFrame {
 	public String getEmail() {return ingresoEmail.getText();}
 	public String getObraSocial() {return ingresoOS.getText();}
 	public int getNumeroDeAfiliado() {return Integer.valueOf(ingresoNumAfiliado.getText());}	
-	public Paciente getPaciente() {return new Paciente(dni, getNombre(), getApellido(), getDireccion(), getTelefono(), getEmail(), getObraSocial(), getNumeroDeAfiliado());}
+	public Paciente getPaciente() {
+		ObraSocial os = new ObraSocial(getObraSocial());
+		return new Paciente(dni, getNombre(), getApellido(), getDireccion(), getTelefono(), getEmail(), os, getNumeroDeAfiliado());}
 	public JButton getButton() {return btnNewButton;}
 	
 	public boolean camposCompletados() {

@@ -8,7 +8,7 @@ import Filtros.FiltroEntreFechas;
 
 public class Medico extends Empleado{
 	private ArrayList<ArrayList<Turno>> turnos;
-	private ArrayList<String> obrasSociales;
+	private ArrayList<ObraSocial> obrasSociales;
 	private String especialidad;
 	private ArrayList<Integer> dias;
 	// 0 = Domingo, 1 = Lunes ... 6 = Sábado
@@ -22,11 +22,11 @@ public class Medico extends Empleado{
 		generarTurnos();
 	}	
 	public Medico(long dni, String nombre, String apellido, String nombreUsuario, String contrasenia,
-			ArrayList<ArrayList<Turno>> turnos, ArrayList<String> obrasSociales, String especialidad,
+			ArrayList<ArrayList<Turno>> turnos, ArrayList<ObraSocial> obs, String especialidad,
 			ArrayList<Integer> dias, int horaInicio, int horaFin) {
 		super(dni, nombre, apellido, nombreUsuario, contrasenia);
 		this.turnos = turnos;
-		this.obrasSociales = obrasSociales;
+		this.obrasSociales = obs;
 		this.especialidad = especialidad;
 		this.dias = dias;
 		this.horaInicio = horaInicio;
@@ -116,22 +116,22 @@ public class Medico extends Empleado{
 		  		return getListaEnUnRango(diaFin.plusDays(1),diaFin.plusMonths(1));
 	}
 	
-	public boolean verifcarOS (String obraSocial) {
+	public boolean verifcarOS (ObraSocial obraSocial) {
 		boolean verificado = false;
 		for (int i = 0; i<this.obrasSociales.size(); i++){
 			if (verificado == false) {
-			     String obritasocial = this.obrasSociales.get(i);
-			     verificado = obritasocial.equalsIgnoreCase(obraSocial);
+			     String obritasocial = this.obrasSociales.get(i).getNombre();
+			     verificado = obritasocial.equalsIgnoreCase(obraSocial.getNombre());
 			     }	
 		}
 		return verificado;
 	}
 	
-	public ArrayList<String> getObrasSociales() {
+	public ArrayList<ObraSocial> getObrasSociales() {
 		return obrasSociales;
 	}
-	public void setObrasSociales(ArrayList<String> obrasSociales) {
-		this.obrasSociales = obrasSociales;
+	public void setObrasSociales(ArrayList<ObraSocial> obrasSociales) {
+		this.obrasSociales.addAll(obrasSociales);
 	}
 	public String getEspecialidad() {
 		return especialidad;
