@@ -4,6 +4,8 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Collections;
 
+import Filtros.FiltroEntreFechas;
+
 public class Medico extends Empleado{
 	private ArrayList<ArrayList<Turno>> turnos;
 	private ArrayList<String> obrasSociales;
@@ -93,6 +95,25 @@ public class Medico extends Empleado{
 		turnosDia2.add(t6);
 		Collections.sort(turnosDia2);
 		turnos.add(turnosDia2);
+	}
+	
+	public ArrayList<Turno> getListaEnUnRango(LocalDate diaIni, LocalDate diaFin){
+		ArrayList<Turno> salida = new ArrayList<Turno>();
+		FiltroEntreFechas rango = new FiltroEntreFechas(diaIni,diaFin);
+		for( ArrayList<Turno> t1: this.turnos){
+			Turno t2 = t1.get(0); 
+			if(rango.cumple(t2)){
+				salida.addAll(t1);
+			}
+		}
+	  if(salida.isEmpty()){
+	  		//interfaz(pregunta si quiere ver los sig turnos)
+	  }
+	  return salida;
+	}
+	
+	public ArrayList<Turno> quiereVerSemProx(LocalDate diaFin){
+		  		return getListaEnUnRango(diaFin.plusDays(1),diaFin.plusMonths(1));
 	}
 	
 	public boolean verifcarOS (String obraSocial) {
