@@ -95,6 +95,17 @@ public class Medico extends Empleado{
 		turnos.add(turnosDia2);
 	}
 	
+	public boolean verifcarOS (String obraSocial) {
+		boolean verificado = false;
+		for (int i = 0; i<this.obrasSociales.size(); i++){
+			if (verificado == false) {
+			     String obritasocial = this.obrasSociales.get(i);
+			     verificado = obritasocial.equalsIgnoreCase(obraSocial);
+			     }	
+		}
+		return verificado;
+	}
+	
 	public ArrayList<String> getObrasSociales() {
 		return obrasSociales;
 	}

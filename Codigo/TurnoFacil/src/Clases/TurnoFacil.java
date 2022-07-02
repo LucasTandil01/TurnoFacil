@@ -103,6 +103,14 @@ public class TurnoFacil {
 		return salida;
 	}
 	
+	public ArrayList<Medico> buscarMedicosSinFiltro(){
+			ArrayList<Medico> salida = new ArrayList<>();
+			for(Medico m : medicos) {
+					salida.add(m);
+			}
+			return salida;
+		}
+	
 	public ArrayList<Medico> getMedicos(){return new ArrayList<Medico>(medicos);}
 	public ArrayList<Secretaria> getSecretarias(){return new ArrayList<Secretaria>(secretarias);}
 	public ArrayList<Paciente> getPacientes(){return new ArrayList<Paciente>(pacientes);}
