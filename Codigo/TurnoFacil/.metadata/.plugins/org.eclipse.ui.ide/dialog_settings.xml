@@ -14,6 +14,7 @@
 		<item key="SmartImportRootWizardPage.STORE_NESTED_PROJECTS" value="true"/>
 		<item key="SmartImportRootWizardPage.STORE_CONFIGURE_NATURES" value="true"/>
 		<list key="org.eclipse.ui.internal.wizards.datatransfer.SmartImportRootWizardPage.knownSources">
+			<item value="C:\Users\54226\Desktop\Universidad Nico\Metodologia\TurnoFacil\Codigo\TurnoFacil\src"/>
 			<item value="C:\Users\rivad\Desktop\3er año\metod\TPE\TurnoFacil\Codigo\TurnoFacil"/>
 		</list>
 	</section>
