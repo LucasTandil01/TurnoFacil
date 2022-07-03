@@ -4,7 +4,8 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Collections;
 
-import Filtros.FiltroAPartirDeFecha;
+import Filtros.FiltroDesdeFecha;
+import Filtros.FiltroHastaFecha;
 import Filtros.FiltroAndTurno;
 import Filtros.FiltroHorario;
 import Filtros.FiltroNotTurno;
@@ -44,16 +45,26 @@ public class Medico extends Empleado{
 			for(Turno t2:t) {
 				if(!t2.estaOcupado()) {
 					salida.add(t2);
-			}
-		}}
-		return salida;
-		
+				}
+			}}
+		return salida;		
 	}
 	
-	public ArrayList<Turno> getTurnosFranjaHor(ArrayList<Turno> turnos, String franjahor){
+	public ArrayList<Turno> getTurnosOcup(){	
+		ArrayList<Turno> salida =  new ArrayList<Turno>();
+		for(ArrayList<Turno> t:turnos) {
+			for(Turno t2:t) {
+				if(t2.estaOcupado()) {
+					salida.add(t2);
+			}
+		}}
+		return salida;		
+	}
+	
+	public ArrayList<Turno> getTurnosFranjaHor(ArrayList<Turno> turnos, String franjaHor){
 		ArrayList<Turno> salida= new ArrayList<Turno>();
 		FiltroTurno franja = new FiltroHorario();
-		if (franjahor.equals("Tarde")) {
+		if (franjaHor.equals("Tarde")) {
 			franja = new FiltroNotTurno(franja);
 		}
 		for (Turno t: turnos)
@@ -63,23 +74,7 @@ public class Medico extends Empleado{
 		return salida;
 	}
 	
-	public ArrayList<ArrayList<Turno>> getTurnos(){    return new ArrayList<ArrayList<Turno>>(turnos);}
-
-	/*public ArrayList<ArrayList<Turno>> getTurnos(){
-		ArrayList<Turno> salida =  new ArrayList<Turno>();
-		ArrayList<ArrayList<Turno>> salidaf =  new ArrayList<ArrayList<Turno>>();
-		System.out.print("uwu");
-		for(ArrayList<Turno> t:turnos) {
-			for(Turno t2:t) {
-				if(t2.estaOcupado()) {
-					salida.add(t2);
-				}
-			}
-			salidaf.add(salida);
-			salida.clear();
-		}
-		return salidaf;
-	}*/
+	public ArrayList<ArrayList<Turno>> getTurnos(){return new ArrayList<ArrayList<Turno>>(turnos);}
 	
 	public void generarTurnos() {
 		ArrayList<Turno> turnosDia = new ArrayList<Turno>();
@@ -115,26 +110,22 @@ public class Medico extends Empleado{
 		turnos.add(turnosDia2);
 	}
 	
-	public ArrayList<Turno> getListaEnUnRango(LocalDate diaIni, LocalDate diaFin){
+	public ArrayList<Turno> getListaEnUnRango(ArrayList<Turno> turnos, LocalDate diaIni, LocalDate diaFin){
 		ArrayList<Turno> salida = new ArrayList<Turno>();
-		FiltroAPartirDeFecha f1 = new FiltroAPartirDeFecha(diaIni);
-		FiltroAPartirDeFecha f2 = new FiltroAPartirDeFecha(diaFin);
-		FiltroNotTurno f3 =new FiltroNotTurno(f2);
-		FiltroAndTurno rango = new FiltroAndTurno(f1,f3);
-		for( ArrayList<Turno> t1: this.turnos){
-			Turno t2 = t1.get(0); 
-			if(rango.cumple(t2)){
-				salida.addAll(t1);
+		FiltroDesdeFecha f1 = new FiltroDesdeFecha(diaIni);
+		FiltroHastaFecha f2 = new FiltroHastaFecha(diaFin);
+		FiltroAndTurno rango = new FiltroAndTurno(f1,f2);
+		for(Turno t1: turnos){
+			if(t1.getFecha().isAfter(diaFin)) break;
+			if(rango.cumple(t1)){
+				salida.add(t1);
 			}
 		}
-	  if(salida.isEmpty()){
-	  		//interfaz(pregunta si quiere ver los sig turnos)
-	  }
 	  return salida;
 	}
 	
 	public ArrayList<Turno> quiereVerSemProx(LocalDate diaFin){
-		  		return getListaEnUnRango(diaFin.plusDays(1),diaFin.plusMonths(1));
+		return getListaEnUnRango(getTurnosDisp(),diaFin.plusDays(1),diaFin.plusMonths(1));
 	}
 	
 	public boolean verifcarOS (ObraSocial obraSocial) {
@@ -143,7 +134,7 @@ public class Medico extends Empleado{
 			if (verificado == false) {
 			     String obritasocial = this.obrasSociales.get(i).getNombre();
 			     verificado = obritasocial.equalsIgnoreCase(obraSocial.getNombre());
-			     }	
+			}	
 		}
 		return verificado;
 	}

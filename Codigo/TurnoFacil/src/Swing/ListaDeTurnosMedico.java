@@ -5,6 +5,7 @@ import java.awt.color.CMMException;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 
 import Clases.*;
@@ -66,7 +67,7 @@ public class ListaDeTurnosMedico extends JFrame implements ActionListener {
 		String info = "";					
 		for(Turno t: turnos) {
 			if(t.getPaciente()!=null) {
-			info = "Hora: "+t.getHora()+". Fecha: "+t.getFecha()+". Duracion: "+t.getDuracion()+"min. Paciente: "+t.getPaciente().getNombre()+" "+t.getPaciente().getApellido();
+			info = "Hora: " +  String.format("%02d",t.getHora())+ ":" + String.format("%02d",t.getMinutos()) + ". Fecha: " + t.getFecha().format(DateTimeFormatter.ofPattern("dd/MM/yyyy")) + ". Duracion: "+t.getDuracion()+"min. Paciente: "+t.getPaciente().getNombre()+" "+t.getPaciente().getApellido();
 			modelo.addElement(info);
 			}
 		}
@@ -74,23 +75,8 @@ public class ListaDeTurnosMedico extends JFrame implements ActionListener {
 	}
 
 	public void filtradoTurnos(Medico m,String turno, int diaDesde, int mesDesde, int anioDesde, int diaHasta, int mesHasta, int anioHasta) {
-		modelo.clear();
-		ArrayList<ArrayList<Turno>> turnosMed = m.getTurnos();
-		ArrayList<Turno> turnosFiltrados = new ArrayList<Turno>();
-		int i = 0;
-		LocalDate fecha = turnosMed.get(i).get(0).getFecha();
-		while(i<turnosMed.size()&&cumpleFechaDesde(fecha, diaDesde, mesDesde, anioDesde)) {
-			i++;
-			if(i<turnosMed.size())
-				fecha = turnosMed.get(i).get(0).getFecha();
-		}
-		while(i<turnosMed.size()&&!cumpleFechaDesde(fecha, diaDesde, mesDesde, anioDesde)&&(cumpleFechaHasta(fecha, diaHasta, mesHasta, anioHasta))) {
-			turnosFiltrados.addAll(turnosMed.get(i));			
-			i++;
-			if(i<turnosMed.size())
-				fecha = turnosMed.get(i).get(0).getFecha();
-		}
-		actualizarTurnos(turnosFiltrados);
+		modelo.clear();		
+		actualizarTurnos(m.getListaEnUnRango(m.getTurnosOcup(), LocalDate.of(anioDesde, mesDesde, diaDesde), LocalDate.of(anioHasta, mesHasta, diaHasta)));
 	}
 	
 	public boolean cumpleFechaDesde(LocalDate fecha, int diaDesde, int mesDesde, int anioDesde) {
@@ -147,6 +133,10 @@ public class ListaDeTurnosMedico extends JFrame implements ActionListener {
 		desdeMesBox.setEnabled(false);
 		desdeMesBox.setModel(new DefaultComboBoxModel(new String[] {"01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12"}));
 		
+		desdeAnioBox = new JComboBox();
+		desdeAnioBox.setEnabled(false);
+		desdeAnioBox.setModel(new DefaultComboBoxModel(new String[] {"2022", "2023", "2024", "2025", "2026", "2027", "2028", "2029", "2030", "2031", "2032", "2033", "2034", "2035", "2036", "2037", "2038", "2039"}));
+		
 		hastaDiaBox = new JComboBox();
 		hastaDiaBox.setEnabled(false);
 		hastaDiaBox.setModel(new DefaultComboBoxModel(new String[] {"01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31"}));
@@ -181,11 +171,7 @@ public class ListaDeTurnosMedico extends JFrame implements ActionListener {
 				hastaAnioBox.setEnabled(!hastaAnioBox.isEnabled());				
 			}
 		});
-		
-		desdeAnioBox = new JComboBox();
-		desdeAnioBox.setModel(new DefaultComboBoxModel(new String[] {"2022", "2023", "2024", "2025", "2026", "2027", "2028", "2029", "2030", "2031", "2032", "2033", "2034", "2035", "2036", "2037", "2038", "2039"}));
-		desdeAnioBox.setEnabled(false);
-		
+				
 		btnNewButton = new JButton("Buscar");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {

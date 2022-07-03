@@ -30,6 +30,7 @@ import javax.swing.JComboBox;
 
 public class ListaDeMedicos extends JFrame {
 
+	private Paciente p;
 	private JPanel contentPane;
 	private JTextField txtEspecialidad;
 	private JTextField txtObraSocial;
@@ -43,7 +44,8 @@ public class ListaDeMedicos extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public ListaDeMedicos(TurnoFacil sistema) {
+	public ListaDeMedicos(TurnoFacil sistema, Paciente p) {
+		this.p = p;
 		setResizable(false);
 		iniciarComponentes(sistema);
 		actualizarMedicos(sistema.getMedicos());
@@ -61,7 +63,7 @@ public class ListaDeMedicos extends JFrame {
 	
 	public void busqueda(TurnoFacil sistema) {
 		ObraSocial os = new ObraSocial(OSSearch.getText());
-		Filtro busqueda = new FiltroAND(new FiltroEspecialidad(especialidadSearch.getText()), new FiltroOS(os));				
+		FiltroMedico busqueda = new FiltroAndMedico(new FiltroEspecialidad(especialidadSearch.getText()), new FiltroOS(os));				
 		actualizarMedicos(sistema.buscarMedicos(busqueda));
 	}
 	
@@ -79,7 +81,7 @@ public class ListaDeMedicos extends JFrame {
 				EventQueue.invokeLater(new Runnable() {
 					public void run() {
 						try {
-							Turnero frame = new Turnero(sistema.getMedicos().get(listaMedicos.getSelectedIndex()));
+							Turnero frame = new Turnero(sistema.getMedicos().get(listaMedicos.getSelectedIndex()),p);
 							frame.setVisible(true);
 						} catch (Exception e) {
 							e.printStackTrace();

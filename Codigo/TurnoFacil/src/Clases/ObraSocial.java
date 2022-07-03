@@ -2,6 +2,7 @@ package Clases;
 
 public class ObraSocial {
       private String nombre;
+      private double diferencial;
      // private Calculador
 
 	
@@ -17,5 +18,12 @@ public class ObraSocial {
 		this.nombre = nombre;
 	}
       
-      
+	public boolean cobraDiferencial() {
+		// hacer
+		return false;
+	}
+	
+	public double getDiferencial() {
+		return diferencial;
+	}
 }

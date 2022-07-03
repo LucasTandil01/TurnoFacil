@@ -2,7 +2,6 @@ package Clases;
 
 import java.util.ArrayList;
 
-import Filtros.Filtro;
 
 public class Secretaria extends Empleado{
 	private ArrayList<Medico> medicos;

@@ -136,7 +136,7 @@ public class PortalPaciente extends JFrame {
 				EventQueue.invokeLater(new Runnable() {
 					public void run() {
 						try {
-							ListaDeMedicos frame = new ListaDeMedicos(sistema);
+							ListaDeMedicos frame = new ListaDeMedicos(sistema,p);
 							frame.setVisible(true);
 						} catch (Exception e) {
 							e.printStackTrace();
@@ -147,6 +147,20 @@ public class PortalPaciente extends JFrame {
 		});
 		
 		JButton btnVerPrximosTurnos = new JButton("Ver próximos turnos");
+		btnVerPrximosTurnos.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				EventQueue.invokeLater(new Runnable() {
+					public void run() {
+						try {
+							ListaTurnosPaciente frame = new ListaTurnosPaciente(p);
+							frame.setVisible(true);
+						} catch (Exception e) {
+							e.printStackTrace();
+						}
+					}
+				});
+			}
+		});
 		GroupLayout gl_contentPane = new GroupLayout(contentPane);
 		gl_contentPane.setHorizontalGroup(
 			gl_contentPane.createParallelGroup(Alignment.TRAILING)

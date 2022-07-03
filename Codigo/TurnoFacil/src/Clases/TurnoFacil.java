@@ -2,7 +2,7 @@ package Clases;
 import java.awt.EventQueue;
 import java.util.ArrayList;
 
-import Filtros.Filtro;
+import Filtros.*;
 import Swing.*;
 
 public class TurnoFacil {
@@ -94,7 +94,7 @@ public class TurnoFacil {
 //		//...
 	}
 	
-	public ArrayList<Medico> buscarMedicos(Filtro f){
+	public ArrayList<Medico> buscarMedicos(FiltroMedico f){
 		ArrayList<Medico> salida = new ArrayList<>();
 		for(Medico m : medicos) {
 			if(f.cumple(m))

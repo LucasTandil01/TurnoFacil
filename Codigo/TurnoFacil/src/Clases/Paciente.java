@@ -1,6 +1,10 @@
 package Clases;
 
+import java.awt.EventQueue;
 import java.util.ArrayList;
+
+import Swing.PopOutOS;
+import Swing.PopOutTurnoAgregado;
 
 public class Paciente extends Usuario{
 	private String direccion;
@@ -8,9 +12,7 @@ public class Paciente extends Usuario{
 	private String email;
 	private ObraSocial obraSocial;
 	private int numAfiliado;
-	private ArrayList<Turno> turnosReservados;
-	
-	
+	private ArrayList<Turno> turnosReservados;	
 
 	public Paciente() {
 		super(12345678,"Juan", "Rodriguez");
@@ -19,6 +21,7 @@ public class Paciente extends Usuario{
 		this.email = "example@gmail.com";
 		this.obraSocial = new ObraSocial("Obra Social");
 		this.numAfiliado = 12345;
+		turnosReservados = new ArrayList<Turno>();
 	}
 	
 	public Paciente(long dni, String nombre, String apellido, String direccion, long telefono, String email, ObraSocial obraSocial, int numAfiliado){
@@ -28,6 +31,7 @@ public class Paciente extends Usuario{
 		this.email = email;
 		this.obraSocial.setNombre(obraSocial.getNombre());
 		this.numAfiliado = numAfiliado;
+		turnosReservados = new ArrayList<Turno>();
 	}
 	
 	public String getDireccion() {
@@ -69,19 +73,38 @@ public class Paciente extends Usuario{
 		this.turnosReservados = turnosReservados;
 	}
 	
+	public Paciente getPaciente() {return this;}
+	
 	public void verificarTurno(Turno t) {
-		if (t.getMedico().verifcarOS(obraSocial)) //&& obreSocial.calcularDiferencial()==0)
-		{
+		if (t.getMedico().verifcarOS(obraSocial)) //&& obreSocial.calcularDiferencial()==0)	
 			confirmarTurno(t);
-		}
 		else {
-			// INTERFAZ llama la función quiereTurno  
-			//if (quiereTurno(true)) {
+			EventQueue.invokeLater(new Runnable() {
+				public void run() {
+					try {
+						PopOutOS frame = new PopOutOS(t,getPaciente(),obraSocial.cobraDiferencial(),obraSocial.getDiferencial());
+						frame.setVisible(true);
+					} catch (Exception e) {
+						e.printStackTrace();
+					}
+				}
+			});
 			}
 		}
 	 
 	public void confirmarTurno(Turno t) {
 		t.setPaciente(this);
-		turnosReservados.add(t);}
+		turnosReservados.add(t);
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					PopOutTurnoAgregado frame = new PopOutTurnoAgregado();
+					frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
 }
 
