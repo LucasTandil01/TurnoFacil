@@ -1,12 +1,17 @@
 package Clases;
 
+import java.util.ArrayList;
+
 public class Paciente extends Usuario{
 	private String direccion;
 	private long telefono;
 	private String email;
 	private ObraSocial obraSocial;
 	private int numAfiliado;
+	private ArrayList<Turno> turnosReservados;
 	
+	
+
 	public Paciente() {
 		super(12345678,"Juan", "Rodriguez");
 		this.direccion = "Calle 123";
@@ -55,4 +60,28 @@ public class Paciente extends Usuario{
 	public void setNumAfiliado(int numAfiliado) {
 		this.numAfiliado = numAfiliado;
 	}	
+	
+	public ArrayList<Turno> getTurnosReservados() {
+		return turnosReservados;
+	}
+
+	public void setTurnosReservados(ArrayList<Turno> turnosReservados) {
+		this.turnosReservados = turnosReservados;
+	}
+	
+	public void verificarTurno(Turno t) {
+		if (t.getMedico().verifcarOS(obraSocial)) //&& obreSocial.calcularDiferencial()==0)
+		{
+			confirmarTurno(t);
+		}
+		else {
+			// INTERFAZ llama la función quiereTurno  
+			//if (quiereTurno(true)) {
+			}
+		}
+	 
+	public void confirmarTurno(Turno t) {
+		t.setPaciente(this);
+		turnosReservados.add(t);}
 }
+

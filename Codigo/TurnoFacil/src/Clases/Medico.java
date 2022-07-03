@@ -6,7 +6,9 @@ import java.util.Collections;
 
 import Filtros.FiltroAPartirDeFecha;
 import Filtros.FiltroAndTurno;
+import Filtros.FiltroHorario;
 import Filtros.FiltroNotTurno;
+import Filtros.FiltroTurno;
 
 public class Medico extends Empleado{
 	private ArrayList<ArrayList<Turno>> turnos;
@@ -47,6 +49,20 @@ public class Medico extends Empleado{
 		return salida;
 		
 	}
+	
+	public ArrayList<Turno> getTurnosFranjaHor(ArrayList<Turno> turnos, String franjahor){
+		ArrayList<Turno> salida= new ArrayList<Turno>();
+		FiltroTurno franja = new FiltroHorario();
+		if (franjahor.equals("Tarde")) {
+			franja = new FiltroNotTurno(franja);
+		}
+		for (Turno t: turnos)
+			if(franja.cumple(t)){
+				salida.add(t);
+			}
+		return salida;
+	}
+	
 	public ArrayList<ArrayList<Turno>> getTurnos(){    return new ArrayList<ArrayList<Turno>>(turnos);}
 
 	/*public ArrayList<ArrayList<Turno>> getTurnos(){
@@ -67,12 +83,12 @@ public class Medico extends Empleado{
 	
 	public void generarTurnos() {
 		ArrayList<Turno> turnosDia = new ArrayList<Turno>();
-		Turno t1 = new Turno("09:00", LocalDate.of(2022, 6, 14), this, null, 30);
-		Turno t2 = new Turno("11:00", LocalDate.of(2022, 6, 14), this, new Paciente(), 30);
-		Turno t3 = new Turno("14:00", LocalDate.of(2022, 6, 14), this, new Paciente(), 30);
-		Turno t4 = new Turno("10:00", LocalDate.of(2022, 6, 14), this, null, 30);
-		Turno t5 = new Turno("13:00", LocalDate.of(2022, 6, 14), this, new Paciente(), 30);
-		Turno t6 = new Turno("12:00", LocalDate.of(2022, 6, 14), this, new Paciente(), 30);
+		Turno t1 = new Turno(9,00, LocalDate.of(2022, 6, 14), this, null, 30);
+		Turno t2 = new Turno(11,00, LocalDate.of(2022, 6, 14), this, new Paciente(), 30);
+		Turno t3 = new Turno(14,00, LocalDate.of(2022, 6, 14), this, new Paciente(), 30);
+		Turno t4 = new Turno(10,00, LocalDate.of(2022, 6, 14), this, null, 30);
+		Turno t5 = new Turno(13,00, LocalDate.of(2022, 6, 14), this, new Paciente(), 30);
+		Turno t6 = new Turno(12,00, LocalDate.of(2022, 6, 14), this, new Paciente(), 30);
 		turnosDia.add(t1);
 		turnosDia.add(t2);
 		turnosDia.add(t3);
@@ -83,12 +99,12 @@ public class Medico extends Empleado{
 		turnos.add(turnosDia);
 		
 		ArrayList<Turno> turnosDia2 = new ArrayList<Turno>();
-		t1 = new Turno("08:00", LocalDate.of(2022, 6, 17), this, new Paciente(), 30);
-		t2 = new Turno("11:00", LocalDate.of(2022, 6, 17), this,null, 30);
-		t3 = new Turno("15:00", LocalDate.of(2022, 6, 17), this, new Paciente(), 30);
-		t4 = new Turno("10:00", LocalDate.of(2022, 6, 17), this, new Paciente(), 30);
-		t5 = new Turno("13:00", LocalDate.of(2022, 6, 17), this, null, 30);
-		t6 = new Turno("16:00", LocalDate.of(2022, 6, 17), this, new Paciente(), 30);
+		t1 = new Turno(8,00, LocalDate.of(2022, 6, 17), this, new Paciente(), 30);
+		t2 = new Turno(11,00, LocalDate.of(2022, 6, 17), this,null, 30);
+		t3 = new Turno(15,00, LocalDate.of(2022, 6, 17), this, new Paciente(), 30);
+		t4 = new Turno(10,00, LocalDate.of(2022, 6, 17), this, new Paciente(), 30);
+		t5 = new Turno(13,00, LocalDate.of(2022, 6, 17), this, null, 30);
+		t6 = new Turno(16,00, LocalDate.of(2022, 6, 17), this, new Paciente(), 30);
 		turnosDia2.add(t1);
 		turnosDia2.add(t2);
 		turnosDia2.add(t3);

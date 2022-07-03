@@ -3,14 +3,16 @@ package Clases;
 import java.time.LocalDate;
 
 public class Turno implements Comparable<Turno>{
-	private String hora;
+	private int hora;
+	private int minutos;
 	private LocalDate fecha;
 	private Medico medico;
 	private Paciente paciente;
 	private int duracion;	
 	
-	public Turno(String hora, LocalDate fecha, Medico medico, Paciente paciente, int duracion) {
+	public Turno(int hora, int minutos, LocalDate fecha, Medico medico, Paciente paciente, int duracion) {
 		this.hora = hora;
+		this.minutos = minutos;
 		this.fecha = fecha;
 		this.medico = medico;
 		this.paciente = paciente;
@@ -22,11 +24,17 @@ public class Turno implements Comparable<Turno>{
 				
 	}
 	
-	public String getHora() {
+	public int getHora() {
 		return hora;
 	}
-	public void setHora(String hora) {
+	public void setHora(int hora) {
 		this.hora = hora;
+	}
+	public int getMinutos() {
+		return minutos;
+	}
+	public void setMinutos(int minutos) {
+		this.minutos = minutos;
 	}
 	public LocalDate getFecha() {
 		return fecha;
@@ -53,7 +61,11 @@ public class Turno implements Comparable<Turno>{
 		this.duracion = duracion;
 	}
 	@Override
-	public int compareTo(Turno t) {return hora.compareTo(t.getHora());}
+    public int compareTo(Turno t) {
+        if(hora-t.getHora() == 0)
+            return minutos-t.getMinutos();
+        else return hora-t.getHora();
+    }
 
 		
 }
