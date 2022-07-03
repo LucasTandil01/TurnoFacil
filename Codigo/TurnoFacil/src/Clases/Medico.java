@@ -4,7 +4,9 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Collections;
 
-import Filtros.FiltroEntreFechas;
+import Filtros.FiltroAPartirDeFecha;
+import Filtros.FiltroAndTurno;
+import Filtros.FiltroNotTurno;
 
 public class Medico extends Empleado{
 	private ArrayList<ArrayList<Turno>> turnos;
@@ -99,7 +101,10 @@ public class Medico extends Empleado{
 	
 	public ArrayList<Turno> getListaEnUnRango(LocalDate diaIni, LocalDate diaFin){
 		ArrayList<Turno> salida = new ArrayList<Turno>();
-		FiltroEntreFechas rango = new FiltroEntreFechas(diaIni,diaFin);
+		FiltroAPartirDeFecha f1 = new FiltroAPartirDeFecha(diaIni);
+		FiltroAPartirDeFecha f2 = new FiltroAPartirDeFecha(diaFin);
+		FiltroNotTurno f3 =new FiltroNotTurno(f2);
+		FiltroAndTurno rango = new FiltroAndTurno(f1,f3);
 		for( ArrayList<Turno> t1: this.turnos){
 			Turno t2 = t1.get(0); 
 			if(rango.cumple(t2)){

@@ -2,7 +2,7 @@ package Filtros;
 
 import Clases.Medico;
 
-public class FiltroEspecialidad  extends Filtro{
+public class FiltroEspecialidad  extends FiltroMedico{
 	private String especialidad;
 
 	public FiltroEspecialidad(String especialidad) {

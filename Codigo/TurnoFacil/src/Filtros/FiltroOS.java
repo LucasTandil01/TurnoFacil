@@ -3,7 +3,7 @@ package Filtros;
 import Clases.Medico;
 import Clases.ObraSocial;
 
-public class FiltroOS extends Filtro{
+public class FiltroOS extends FiltroMedico{
 	private ObraSocial obraSocial;
 
 	public FiltroOS(ObraSocial os) {

@@ -2,11 +2,11 @@ package Filtros;
 
 import Clases.Medico;
 
-public class FiltroAND extends Filtro {
-	private Filtro filtro1;
-	private Filtro filtro2;
+public class FiltroAndMedico extends FiltroMedico {
+	private FiltroMedico filtro1;
+	private FiltroMedico filtro2;
 	
-	public FiltroAND(Filtro f1, Filtro f2) {
+	public FiltroAndMedico(FiltroMedico f1, FiltroMedico f2) {
 		this.filtro1 = f1;
 		this.filtro2 = f2;
 	}

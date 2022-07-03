@@ -4,21 +4,17 @@ import java.time.LocalDate;
 
 import Clases.Turno;
 
-public class FiltroEntreFechas extends FiltroTurno{
+public class FiltroAPartirDeFecha extends FiltroTurno{
 	private LocalDate fechaIni;
-	private LocalDate fechaFin;
 
-	public FiltroEntreFechas(LocalDate fi, LocalDate ff) {
+	public FiltroAPartirDeFecha(LocalDate fi) {
 		this.fechaIni = fi;
-		this.fechaFin = ff;
 	}
 	
 	@Override
 	public boolean cumple(Turno t) {
 		if(t.getFecha().isAfter(fechaIni)) {
-			if( t.getFecha().isBefore(fechaFin)){
-				return true;
-			}
+			return true;
 		}
 		return false;
 	}
