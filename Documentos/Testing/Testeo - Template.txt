@@ -1,0 +1,8 @@
+# Template de Testeo
+>- Se debe testear la funcionalidad de acuerdo al siguiente template
+>>- Datos que tiene el sistema
+>>- Datos de entrada
+>>- Salida esperada
+>>- Salida obtenida [descrita, o por screenshot]
+>>- Comentarios [opcionales]
+
