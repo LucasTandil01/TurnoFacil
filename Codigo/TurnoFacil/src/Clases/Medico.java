@@ -4,6 +4,7 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Collections;
 
+import Clases.Cobertura;
 import Filtros.FiltroDesdeFecha;
 import Filtros.FiltroHastaFecha;
 import Filtros.FiltroAndTurno;
@@ -13,7 +14,7 @@ import Filtros.FiltroTurno;
 
 public class Medico extends Empleado {
 	private ArrayList<ArrayList<Turno>> turnos;
-	private ArrayList<ObraSocial> obrasSociales;
+	private ArrayList<Cobertura> obrasSociales;
 	private String especialidad;
 	private ArrayList<Integer> dias;
 	// 0 = Domingo, 1 = Lunes ... 6 = Sábado
@@ -29,7 +30,7 @@ public class Medico extends Empleado {
 	}
 
 	public Medico(long dni, String nombre, String apellido, String nombreUsuario, String contrasenia,
-			ArrayList<ArrayList<Turno>> turnos, ArrayList<ObraSocial> obs, String especialidad, ArrayList<Integer> dias,
+			ArrayList<ArrayList<Turno>> turnos, ArrayList<Cobertura> obs, String especialidad, ArrayList<Integer> dias,
 			int horaInicio, int horaFin) {
 		super(dni, nombre, apellido, nombreUsuario, contrasenia);
 		this.turnos = turnos;
@@ -139,7 +140,7 @@ public class Medico extends Empleado {
 		boolean verificado = false;
 		for (int i = 0; i < this.obrasSociales.size(); i++) {
 			if (verificado == false) {
-				String obritasocial = this.obrasSociales.get(i).getNombre();
+				String obritasocial = this.obrasSociales.get(i).getObrasocial().getNombre();
 				verificado = obritasocial.equalsIgnoreCase(obraSocial.getNombre());
 			}
 		}
@@ -151,23 +152,23 @@ public class Medico extends Empleado {
 		boolean verificado2 = false;
 		for (int i = 0; i < this.obrasSociales.size(); i++) {
 			if (verificado == false) {
-				String obritasocial = this.obrasSociales.get(i).getNombre();
+				String obritasocial = this.obrasSociales.get(i).getObrasocial().getNombre();
 				verificado = obritasocial.equalsIgnoreCase(obraSocial.getNombre());
 				if(verificado) {
-					verificado2 = obrasSociales.get(i).isCumple();
+					verificado2 = obrasSociales.get(i).getPorcentaje()==100;
 				}
 			}
 		}
 		return verificado2;
 	}
 
-	public ArrayList<ObraSocial> getObrasSociales() {
-		ArrayList<ObraSocial> aux = new ArrayList<ObraSocial>();
+	public ArrayList<Cobertura> getObrasSociales() {
+		ArrayList<Cobertura> aux = new ArrayList<Cobertura>();
 		aux.addAll(obrasSociales);
 		return aux;
 	}
 
-	public void setObrasSociales(ArrayList<ObraSocial> obrasSociales) {
+	public void setObrasSociales(ArrayList<Cobertura> obrasSociales) {
 		this.obrasSociales.addAll(obrasSociales);
 	}
 
@@ -206,4 +207,13 @@ public class Medico extends Empleado {
 	public void setTurnos(ArrayList<ArrayList<Turno>> turnos) {
 		this.turnos = turnos;
 	}
-}
+	
+	public Cobertura getObraSocialPaciente(ObraSocial os) {
+	for (Cobertura c: obrasSociales)	{
+		if (os.getNombre().equals(c.getObrasocial().getNombre()))
+			return c;
+	}
+	return null;
+	}	
+	}
+

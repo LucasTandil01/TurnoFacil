@@ -37,7 +37,7 @@ public class ListaTurnosPaciente extends JFrame {
 		modelo.clear();
 		String info = "";					
 		for(Turno t: p.getTurnosReservados()) {
-			info = "Hora: " +  String.format("%02d",t.getHora())+ ":" + String.format("%02d",t.getMinutos()) +". Fecha: "+t.getFecha().format(DateTimeFormatter.ofPattern("dd/MM/yyyy")) + ". Duracion: "+t.getDuracion()+"min.";
+			info = "Médico: " + t.getMedico().getApellido() + ", " + t.getMedico().getNombre() + ". Hora: " +  String.format("%02d",t.getHora())+ ":" + String.format("%02d",t.getMinutos()) +". Fecha: "+t.getFecha().format(DateTimeFormatter.ofPattern("dd/MM/yyyy")) + ". Duracion: "+t.getDuracion()+"min.";
 			modelo.addElement(info);
 		}
 		listaTurnos.setModel(modelo);

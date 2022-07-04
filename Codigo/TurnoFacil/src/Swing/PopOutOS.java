@@ -30,7 +30,7 @@ public class PopOutOS extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public PopOutOS(Turno t, Paciente p, boolean cobraDiferencial, double porcentajeDiferencial) {
+	public PopOutOS(Turnero turnero,Turno t, Paciente p, boolean cobraDiferencial, double porcentajeDiferencial) {
 		setResizable(false);
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 339, 154);
@@ -49,7 +49,7 @@ public class PopOutOS extends JFrame {
 		
 		txtPeroSeLe = new JTextField();
 		txtPeroSeLe.setDisabledTextColor(SystemColor.menu);
-		txtPeroSeLe.setEnabled(cobraDiferencial);
+		txtPeroSeLe.setEnabled(!cobraDiferencial);
 		txtPeroSeLe.setBorder(null);
 		txtPeroSeLe.setEditable(false);
 		txtPeroSeLe.setFocusable(false);
@@ -70,7 +70,7 @@ public class PopOutOS extends JFrame {
 		JButton btnSi = new JButton("SI");
 		btnSi.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				p.confirmarTurno(t);
+				p.confirmarTurno(t,turnero);
 				dispose();
 			}
 		});

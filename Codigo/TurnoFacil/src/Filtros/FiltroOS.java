@@ -1,5 +1,6 @@
 package Filtros;
 
+import Clases.Cobertura;
 import Clases.Medico;
 import Clases.ObraSocial;
 
@@ -12,8 +13,8 @@ public class FiltroOS extends FiltroMedico{
 	}
 	
 	private boolean contiene(Medico m) {
-		for(ObraSocial o:m.getObrasSociales()){
-			String o2 = o.getNombre(); 
+		for(Cobertura o:m.getObrasSociales()){
+			String o2 = o.getObrasocial().getNombre(); 
 			if(o2.toLowerCase().contains(obraSocial.getNombre().toLowerCase()))
 				return true;	
 		}

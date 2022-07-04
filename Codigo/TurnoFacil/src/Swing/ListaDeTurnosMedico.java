@@ -75,8 +75,11 @@ public class ListaDeTurnosMedico extends JFrame implements ActionListener {
 	}
 
 	public void filtradoTurnos(Medico m,String turno, int diaDesde, int mesDesde, int anioDesde, int diaHasta, int mesHasta, int anioHasta) {
-		modelo.clear();		
-		actualizarTurnos(m.getListaEnUnRango(m.getTurnosOcup(), LocalDate.of(anioDesde, mesDesde, diaDesde), LocalDate.of(anioHasta, mesHasta, diaHasta)));
+		modelo.clear();	
+		ArrayList<Turno> turnos = m.getListaEnUnRango(m.getTurnosOcup(), LocalDate.of(anioDesde, mesDesde, diaDesde), LocalDate.of(anioHasta, mesHasta, diaHasta));
+		if(!turno.equals("Cualquiera"))
+			turnos = m.getTurnosFranjaHor(turnos, turno);
+		actualizarTurnos(turnos);
 	}
 	
 	public boolean cumpleFechaDesde(LocalDate fecha, int diaDesde, int mesDesde, int anioDesde) {

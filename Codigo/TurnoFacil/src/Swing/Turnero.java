@@ -170,7 +170,7 @@ public class Turnero extends JFrame {
 		JButton seleccionarTurnoBtn = new JButton("Seleccionar Turno");
 		seleccionarTurnoBtn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				p.verificarTurno(turnos.get(listaTurDisp.getSelectedIndex()));
+				p.verificarTurno(turnos.get(listaTurDisp.getSelectedIndex()),getTurnero());
 				buscar();
 			}
 		});
@@ -335,8 +335,10 @@ public class Turnero extends JFrame {
 		}
 		if(turno.equals("Cualquiera"))
 			actualizarTurnos();
-		else
+		else {
 			turnos = m.getTurnosFranjaHor(turnos, turno);
 			actualizarTurnos();
+		}
 	}
+	private Turnero getTurnero() {return this;}
 }

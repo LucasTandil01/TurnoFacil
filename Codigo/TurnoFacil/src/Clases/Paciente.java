@@ -5,6 +5,7 @@ import java.util.ArrayList;
 
 import Swing.PopOutOS;
 import Swing.PopOutTurnoAgregado;
+import Swing.Turnero;
 
 public class Paciente extends Usuario{
 	private String direccion;
@@ -75,14 +76,14 @@ public class Paciente extends Usuario{
 	
 	public Paciente getPaciente() {return this;}
 	
-	public void verificarTurno(Turno t) {
-		if (t.getMedico().verifcarOS(obraSocial)) //&& obreSocial.calcularDiferencial()==0)	
-			confirmarTurno(t);
+	public void verificarTurno(Turno t,Turnero turnero) {
+		if (t.getMedico().verifcarOS(obraSocial) && t.getMedico().verificarOSdiferencial(obraSocial))	
+			confirmarTurno(t,turnero);
 		else {
 			EventQueue.invokeLater(new Runnable() {
 				public void run() {
 					try {
-						PopOutOS frame = new PopOutOS(t,getPaciente(),obraSocial.cobraDiferencial(),obraSocial.getDiferencial());
+						PopOutOS frame = new PopOutOS(turnero,t,getPaciente(),t.getMedico().verificarOSdiferencial(obraSocial),t.getMedico().getObraSocialPaciente(obraSocial).getPorcentaje()); // camiar esto para Cobertura
 						frame.setVisible(true);
 					} catch (Exception e) {
 						e.printStackTrace();
@@ -91,10 +92,11 @@ public class Paciente extends Usuario{
 			});
 			}
 		}
-	 
-	public void confirmarTurno(Turno t) {
+	
+	public void confirmarTurno(Turno t,Turnero turnero) {
 		t.setPaciente(this);
 		turnosReservados.add(t);
+		turnero.buscar();
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {

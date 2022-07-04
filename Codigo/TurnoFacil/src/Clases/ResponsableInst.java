@@ -10,13 +10,16 @@ public class ResponsableInst extends Empleado{
 	}
 	
 	public void crearMedicos() {
-		ArrayList<ObraSocial> obrasSociales = new ArrayList<ObraSocial>();
-		ArrayList<ObraSocial> obrasSociales2 = new ArrayList<ObraSocial>();
+		ArrayList<Cobertura> obrasSociales = new ArrayList<Cobertura>();
+		ArrayList<Cobertura> obrasSociales2 = new ArrayList<Cobertura>();
 		ObraSocial os1 = new ObraSocial("Obra Social");
 		ObraSocial os2 = new ObraSocial("Obra Social 2");
-		obrasSociales.add(os1);
-		obrasSociales2.add(os1);
-		obrasSociales.add(os2);
+		Cobertura c1 = new Cobertura(os1, 100); 
+		Cobertura c2 = new Cobertura(os1, 50);
+		Cobertura c3 = new Cobertura(os2, 50); 
+		obrasSociales.add(c1);
+		obrasSociales2.add(c2);
+		obrasSociales.add(c3);
 		ArrayList<Integer> dias = new ArrayList<Integer>();
 		dias.add(1);
 		dias.add(2);
@@ -37,7 +40,7 @@ public class ResponsableInst extends Empleado{
 	}
 	
 	public void crearMedico(long dni, String nombre, String apellido, String nombreUsuario, String contrasenia,
-			ArrayList<ArrayList<Turno>> turnos, ArrayList<ObraSocial> obrasSociales, String especialidad,
+			ArrayList<ArrayList<Turno>> turnos, ArrayList<Cobertura> obrasSociales, String especialidad,
 			ArrayList<Integer> dias, int horaInicio, int horaFin) {
 		Medico m = new Medico(dni, nombre, apellido, nombreUsuario, contrasenia,
 								turnos, obrasSociales, especialidad, dias, horaInicio, horaFin);		
