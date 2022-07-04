@@ -77,13 +77,13 @@ public class Paciente extends Usuario{
 	public Paciente getPaciente() {return this;}
 	
 	public void verificarTurno(Turno t,Turnero turnero) {
-		if (t.getMedico().verifcarOS(obraSocial) && t.getMedico().verificarOSdiferencial(obraSocial))	
+		if (t.getMedico().verifcarOS(obraSocial) && t.getMedico().verificarOSdiferencial(obraSocial)==2)	
 			confirmarTurno(t,turnero);
 		else {
 			EventQueue.invokeLater(new Runnable() {
 				public void run() {
 					try {
-						PopOutOS frame = new PopOutOS(turnero,t,getPaciente(),t.getMedico().verificarOSdiferencial(obraSocial),t.getMedico().getObraSocialPaciente(obraSocial).getPorcentaje()); // camiar esto para Cobertura
+						PopOutOS frame = new PopOutOS(turnero,t,getPaciente(),t.getMedico().verificarOSdiferencial(obraSocial),t.getMedico().getObraSocialPaciente(obraSocial)); // camiar esto para Cobertura
 						frame.setVisible(true);
 					} catch (Exception e) {
 						e.printStackTrace();

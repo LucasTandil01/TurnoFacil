@@ -18,7 +18,7 @@ public class ResponsableInst extends Empleado{
 		Cobertura c2 = new Cobertura(os1, 50);
 		Cobertura c3 = new Cobertura(os2, 50); 
 		obrasSociales.add(c1);
-		obrasSociales2.add(c2);
+		//obrasSociales2.add(c2);
 		obrasSociales.add(c3);
 		ArrayList<Integer> dias = new ArrayList<Integer>();
 		dias.add(1);

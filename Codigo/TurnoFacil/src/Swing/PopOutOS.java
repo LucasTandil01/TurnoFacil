@@ -7,6 +7,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
+import Clases.Cobertura;
 import Clases.Paciente;
 import Clases.Turno;
 
@@ -30,7 +31,7 @@ public class PopOutOS extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public PopOutOS(Turnero turnero,Turno t, Paciente p, boolean cobraDiferencial, double porcentajeDiferencial) {
+	public PopOutOS(Turnero turnero,Turno t, Paciente p, int cobraDiferencial, Cobertura os) {
 		setResizable(false);
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setBounds(100, 100, 339, 154);
@@ -49,11 +50,14 @@ public class PopOutOS extends JFrame {
 		
 		txtPeroSeLe = new JTextField();
 		txtPeroSeLe.setDisabledTextColor(SystemColor.menu);
-		txtPeroSeLe.setEnabled(!cobraDiferencial);
+		txtPeroSeLe.setEnabled(cobraDiferencial == 1);
 		txtPeroSeLe.setBorder(null);
 		txtPeroSeLe.setEditable(false);
 		txtPeroSeLe.setFocusable(false);
 		txtPeroSeLe.setOpaque(false);
+		double porcentajeDiferencial = 0;
+		if(txtPeroSeLe.isEnabled())
+			porcentajeDiferencial = os.getPorcentaje();
 		txtPeroSeLe.setText("Pero se le cobrará un diferencial de " + porcentajeDiferencial + "%.");
 		txtPeroSeLe.setHorizontalAlignment(SwingConstants.CENTER);
 		txtPeroSeLe.setColumns(10);

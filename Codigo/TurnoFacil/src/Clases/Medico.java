@@ -147,15 +147,18 @@ public class Medico extends Empleado {
 		return verificado;
 	}
 
-	public boolean verificarOSdiferencial(ObraSocial obraSocial) {
+	public int verificarOSdiferencial(ObraSocial obraSocial) {
 		boolean verificado = false;
-		boolean verificado2 = false;
+		int verificado2 = 0;
 		for (int i = 0; i < this.obrasSociales.size(); i++) {
 			if (verificado == false) {
 				String obritasocial = this.obrasSociales.get(i).getObrasocial().getNombre();
 				verificado = obritasocial.equalsIgnoreCase(obraSocial.getNombre());
 				if(verificado) {
-					verificado2 = obrasSociales.get(i).getPorcentaje()==100;
+					if(obrasSociales.get(i).getPorcentaje()==100)
+						verificado2 = 2;
+					else if(obrasSociales.get(i).getPorcentaje()!=0)
+						verificado2 = 1;
 				}
 			}
 		}
