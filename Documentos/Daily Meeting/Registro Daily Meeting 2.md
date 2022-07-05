@@ -1,0 +1,9 @@
+# Daily Meeting Sprint 2
+>- 27/6: Refinamiento de las UserStory en tasks, se asignarion a los responsables de su realizacion y empezamos a hacer el diagrama de clases. Corregimos errores del diagrama de clases general.
+>- 28/6: Se procedió con la realización del código de las task Filtrar medico por especialidad y Filtrar medico por obra social.
+>- 29/6: Al hacer la user story "Interfaz grafica para seleccionar medico" ocurrio un problema al mostrar los medicos, entonces se informó y se solucionó con los demas desarrolladores. Se finalizo el codigo de la task "Interfaz grafica para seleccionar medico".
+>- 30/6: Implementación de la interfaz gráfica para seleccionar médico y fix de los métodos que afectaban.
+>- 1/7: Seguimos refinando la user story: Como paciente quiero poder ver los días y horarios que atiende el médico que seleccioné en un determinado rango de fechas para poder seleccionar un turno. Agregando un nuevo criterio de aceptación naciendo un nueva user task.
+>- 2/7: Tuvimos un obstaculo del encargado de la task seleccionar turno, en el cual estuvimos todos ayudando para que el encargado pueda resolver su problema; seguido a que a lo largo del dia descubrimos problemas al realizar otras task que por el seleccionar turno modificaba algunos datos, teniendo que corregir el programa cada uno arreglando su funcionalidad indicada en el backlog.
+>- 3/7: Implementación de interfaces gráficas para seleccionar médico, seleccionar turno, popouts y conexiones entre los métodos, además de correcciones varias. Implementación de user task Verificar si medico hace un diferencial por una obra social especifica.
+>- 4/7: Funcionalidad e interfaz del diferencial de la obra social, correciones en las diferentes situaciones de la cobertura de la obra social, Reorganizacion del repo, testeos, diagrama de deployment, secuencia y clase.
