@@ -1,0 +1,4 @@
+#Resumen Sprint 2 Retrospective
+##En el transcurso del Sprint anterior no logramos poder repartirnos las tareas de una forma eficiente, esto llevó a que tengamos que realizar todo a último momento.
+Principalmente, al realizar los push fueron con el proyecto ya terminado y no de una forma progresiva y equitativamente como recomienda la metodología dice que hay que hacer. Esto llevó a que tengamos que ayudarnos más entre nosotros al implementar el código. Por otro lado, aunque tuvimos problemas al principio con la organización, nos coordinamos muy bien al organizar.
+Con relación al sprint anterior, pudimos solucionar el problemas del refinado de las user storys a user task, para poder enfocarnos mejor en quién hará cada task, escogiendo cada uno según sus habilidades. Mejoramos también en la hora de implementar, sea de una forma más progresiva y así poder ir cumpliendo con lo que dice la metodología. 
